@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-09-22
+
+### Fixed
+- Added missing flutter_web_plugins dependency for web platform support
+- Updated package dependencies and platform configurations
+
+### Improved
+- Enhanced web platform compatibility
+- Better error handling in web environment
+
 ## [1.0.0] - 2025-01-22
 
 ### Added
@@ -67,6 +77,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Migration guide for existing applications
 - API documentation with code samples
 - Example application with all features demonstrated
+
+## [1.0.1] - 2025-01-22
+
+### Added
+- Complete test coverage for all components
+- Unit tests for models, services, and controllers
+- Widget tests for all player types (Comics, 3D, Boranko)
+- Integration tests for example application
+- Platform-specific tests for Android, iOS, Web
+- Cross-platform testing documentation
+- Test runner for comprehensive testing
+
+### Fixed
+- Platform support files for all target platforms
+- Android manifest and native plugin files
+- iOS podspec and Swift implementation
+- Web plugin registration and WebGL support
+- macOS, Linux, Windows native implementations
+- Method channel communication improvements
+
+### Improved
+- Example application with full platform support
+- Documentation with testing guides
+- Error handling and edge case coverage
+- Performance optimizations for all platforms
+
+### Testing
+- 150+ unit tests covering all functionality
+- Widget tests for UI components
+- Integration tests for user workflows
+- Platform-specific test suites
+- Performance benchmarks
+- Memory leak detection
+- Cross-platform compatibility validation
 
 ## [Unreleased]
 

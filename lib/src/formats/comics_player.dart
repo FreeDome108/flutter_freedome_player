@@ -359,17 +359,20 @@ class _ComicsPlayerState extends State<ComicsPlayer>
               icon: const Icon(Icons.skip_previous, color: Colors.white),
             ),
             Expanded(
-              child: Slider(
-                value: _currentPage.toDouble(),
-                min: 0,
-                max: (_pages.length - 1).toDouble(),
-                divisions: _pages.length - 1,
-                onChanged: (value) {
-                  final page = value.round();
-                  _goToPage(page);
-                },
-                activeColor: Colors.blue,
-                inactiveColor: Colors.grey,
+              child: Material(
+                color: Colors.transparent,
+                child: Slider(
+                  value: _currentPage.toDouble(),
+                  min: 0,
+                  max: (_pages.length - 1).toDouble(),
+                  divisions: _pages.length - 1,
+                  onChanged: (value) {
+                    final page = value.round();
+                    _goToPage(page);
+                  },
+                  activeColor: Colors.blue,
+                  inactiveColor: Colors.grey,
+                ),
               ),
             ),
             IconButton(
