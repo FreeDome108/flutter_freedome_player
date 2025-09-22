@@ -275,7 +275,16 @@ This plugin depends on:
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the NativeMindNONC License - see the LICENSE file for details.
+
+### License Summary
+
+- **Free for Non-Commercial Use**: Educational institutions, schools, universities, training, research, and personal learning
+- **Commercial Use Requires License**: Written agreement required for any commercial activities
+- **Developer Rights**: Developers can present their work at conferences but commercial licensing must go through the company
+- **Available in 3 Languages**: English, Russian, and Thai versions included
+
+For full license terms, please see the LICENSE file.
 
 ## Contributing
 

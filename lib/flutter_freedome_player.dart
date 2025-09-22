@@ -1,4 +1,3 @@
-library flutter_freedome_player;
 
 // Core player functionality
 export 'src/freedome_player.dart';

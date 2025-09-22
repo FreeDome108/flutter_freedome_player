@@ -1,1 +1,287 @@
-TODO: Add your license here.
+# NativeMindNONC License Agreement
+
+## English Version
+
+### 1. General Provisions
+
+This agreement is governed by copyright laws and intellectual property regulations of the jurisdiction where the software is used.
+
+Copyright Holder: NativeMind Inc. (NativeMind Company)
+
+The "FreeDome Player" trademark is registered and owned by the copyright holder.
+
+Copyright © 2010-2025 NativeMind Inc. All rights reserved.
+
+### 2. Usage Terms
+
+By using the FreeDome Player software ("Product"), you agree to accept the terms and conditions of this agreement. If you do not agree, please stop using the product immediately.
+
+#### 2.1. Source Code Publication
+
+When using the source code of the Product, you are obligated to:
+
+- Publish your source code through GitHub by creating a Fork of the official Repository at https://github.com/FreeDome/flutter_freedome_player
+- Keep it updated to reflect changes from the original
+- Clearly indicate that your source code is a Fork of the original Repository
+
+#### 2.2. Automatic Publication
+
+All publications must be conducted through GitHub Actions only.
+
+#### 2.3. Attribution
+
+When publishing products derived from FreeDome Player, you must:
+
+- Credit the copyright holder with a link to https://github.com/FreeDome/flutter_freedome_player
+- Display a link to the original license agreement
+- Record changes in the README of your Repository
+
+#### 2.4. Malware Prohibition
+
+It is strictly prohibited to add malware or any dangerous code to the product.
+
+#### 2.5. Name and Interface Usage Restrictions
+
+It is prohibited to publish applications in any app store (Google Play, App Store, F-Droid, Microsoft Store, Huawei AppGallery, or other platforms) with names or interfaces similar to FreeDome Player that may cause confusion.
+
+#### 2.6. Commercial Use
+
+**Free for Non-Commercial Use**: This product is free for non-commercial use including:
+- Educational institutions (schools, universities, colleges)
+- Educational and training purposes
+- Research and development for non-commercial projects
+- Personal learning and development
+
+**Commercial Use Requires License**: Commercial use of this product requires a written license agreement from the copyright holder before any commercial activities including:
+- Selling or distributing for profit
+- Using in commercial products or services
+- Business applications
+- Any revenue-generating activities
+
+#### 2.7. Developer Rights and Company Structure
+
+All rights belong to specific developers who are part of the company that develops this software. Developers may:
+- Present code and work results at exhibitions and conferences
+- Showcase their technical achievements publicly
+- Use their work for professional portfolio and career development
+
+However, developers cannot:
+- Use the code or work results for personal commercial purposes
+- License the software independently outside the company structure
+- Transfer commercial rights without company authorization
+
+All commercial licensing must be conducted through the company that employs these developers.
+
+#### 2.8. License Standardization
+
+This license may become a standard and other companies may copy the license text for their own use, similar to MIT, Apache, or GPL licenses.
+
+### 3. Open Source Components
+
+FreeDome Player includes Open Source components licensed under different terms. Using FreeDome Player means you accept the terms of each component as well. Details are specified in the LICENSE.md file included with the product.
+
+### 4. Disclaimer
+
+This product is provided "as is" without any warranties, whether express or implied, including warranties of merchantability, fitness for a particular purpose, and non-infringement. The copyright holder shall not be liable for any damages arising from the use of this product.
+
+### 5. License Violations
+
+In case of violation of this agreement, the copyright holder has the right to request cessation of product distribution and may take legal action or notify app stores to remove or suspend distribution of violating products.
+
+Any disputes shall be resolved according to the laws of the jurisdiction where the copyright holder is incorporated.
+
+---
+
+Using FreeDome Player means you have read, understood, and accepted all terms and conditions of this agreement.
+
+---
+
+## Русская версия
+
+### 1. Общие положения
+
+Данное соглашение регулируется законами об авторском праве и интеллектуальной собственности юрисдикции, где используется программное обеспечение.
+
+Правообладатель: NativeMind Inc. (Компания NativeMind)
+
+Товарный знак "FreeDome Player" зарегистрирован и принадлежит правообладателю.
+
+Авторские права © 2010-2025 NativeMind Inc. Все права защищены.
+
+### 2. Условия использования
+
+Используя программное обеспечение FreeDome Player ("Продукт"), вы соглашаетесь принять условия данного соглашения. Если вы не согласны, немедленно прекратите использование продукта.
+
+#### 2.1. Публикация исходного кода
+
+При использовании исходного кода Продукта вы обязаны:
+
+- Публиковать ваш исходный код через GitHub, создав Fork официального Репозитория по адресу https://github.com/FreeDome/flutter_freedome_player
+- Поддерживать его актуальность, отражая изменения из оригинала
+- Четко указывать, что ваш исходный код является Fork оригинального Репозитория
+
+#### 2.2. Автоматическая публикация
+
+Все публикации должны проводиться только через GitHub Actions.
+
+#### 2.3. Указание авторства
+
+При публикации продуктов, производных от FreeDome Player, вы должны:
+
+- Указать правообладателя со ссылкой на https://github.com/FreeDome/flutter_freedome_player
+- Отобразить ссылку на оригинальное лицензионное соглашение
+- Записать изменения в README вашего Репозитория
+
+#### 2.4. Запрет на вредоносное ПО
+
+Строго запрещено добавление вредоносного ПО или любого опасного кода в продукт.
+
+#### 2.5. Ограничения использования имени и интерфейса
+
+Запрещено публиковать приложения в любых магазинах приложений (Google Play, App Store, F-Droid, Microsoft Store, Huawei AppGallery или других платформах) с именами или интерфейсами, похожими на FreeDome Player, которые могут вызвать путаницу.
+
+#### 2.6. Коммерческое использование
+
+**Бесплатно для некоммерческого использования**: Данный продукт бесплатен для некоммерческого использования, включая:
+- Образовательные учреждения (школы, университеты, колледжи)
+- Образовательные и обучающие цели
+- Исследования и разработки для некоммерческих проектов
+- Личное обучение и развитие
+
+**Коммерческое использование требует лицензии**: Коммерческое использование данного продукта требует письменного лицензионного соглашения от правообладателя перед любыми коммерческими действиями, включая:
+- Продажу или распространение с целью получения прибыли
+- Использование в коммерческих продуктах или услугах
+- Бизнес-приложения
+- Любую деятельность, приносящую доход
+
+#### 2.7. Права разработчиков и структура компании
+
+Все права принадлежат конкретным разработчикам, которые входят в состав компании, разрабатывающей данное программное обеспечение. Разработчики могут:
+- Представлять код и результаты работы на выставках и конференциях
+- Демонстрировать свои технические достижения публично
+- Использовать свою работу для профессионального портфолио и развития карьеры
+
+Однако разработчики не могут:
+- Использовать код или результаты работы для личных коммерческих целей
+- Лицензировать программное обеспечение независимо вне структуры компании
+- Передавать коммерческие права без разрешения компании
+
+Все коммерческое лицензирование должно проводиться через компанию, которая нанимает этих разработчиков.
+
+#### 2.8. Стандартизация лицензии
+
+Данная лицензия может стать стандартом, и другие компании могут копировать текст лицензии для собственного использования, аналогично лицензиям MIT, Apache или GPL.
+
+### 3. Компоненты с открытым исходным кодом
+
+FreeDome Player включает компоненты с открытым исходным кодом, лицензированные на других условиях. Использование FreeDome Player означает, что вы также принимаете условия каждого компонента. Детали указаны в файле LICENSE.md, прилагаемом к продукту.
+
+### 4. Отказ от ответственности
+
+Данный продукт предоставляется "как есть" без каких-либо гарантий, будь то явных или подразумеваемых, включая гарантии товарности, пригодности для определенной цели и отсутствия нарушений. Правообладатель не несет ответственности за любой ущерб, возникающий в результате использования данного продукта.
+
+### 5. Нарушение лицензии
+
+В случае нарушения данного соглашения правообладатель имеет право потребовать прекращения распространения продукта и может предпринять правовые действия или уведомить магазины приложений об удалении или приостановке распространения нарушающих продуктов.
+
+Любые споры должны решаться согласно законам юрисдикции, где зарегистрирован правообладатель.
+
+---
+
+Использование FreeDome Player означает, что вы прочитали, поняли и приняли все условия данного соглашения.
+
+---
+
+## ข้อตกลงสิทธิการใช้งาน FreeDome Player (ประเทศไทย)
+
+### 1. ข้อกำหนดทั่วไป
+
+ข้อตกลงนี้อยู่ภายใต้บังคับของพระราชบัญญัติลิขสิทธิ์ พ.ศ. 2537 และแก้ไขเพิ่มเติม รวมถึงประมวลกฎหมายแพ่งและพาณิชย์แห่งราชอาณาจักรไทย
+
+ผู้ถือลิขสิทธิ์: บริษัท เนทีฟมายด์ จำกัด (NativeMind Inc.)
+
+เครื่องหมายการค้า "FreeDome Player" ได้รับการจดทะเบียนและถือครองโดยผู้ถือลิขสิทธิ์
+
+ลิขสิทธิ์ © 2010-2025 NativeMind Inc. สงวนลิขสิทธิ์
+
+### 2. เงื่อนไขการใช้งาน
+
+การใช้งานโปรแกรม FreeDome Player ("ผลิตภัณฑ์") ถือว่าท่านยอมรับข้อกำหนดและเงื่อนไขตามข้อตกลงฉบับนี้ หากท่านไม่ยอมรับ โปรดหยุดใช้งานผลิตภัณฑ์โดยทันที
+
+#### 2.1. การเผยแพร่ซอร์สโค้ด
+
+เมื่อท่านใช้งานซอร์สโค้ดของผลิตภัณฑ์ ท่านมีหน้าที่:
+
+- เผยแพร่ซอร์สโค้ดของท่านผ่าน GitHub โดยทำเป็น Fork ของ Repository อย่างเป็นทางการที่ https://github.com/FreeDome/flutter_freedome_player
+- ปรับปรุงให้เป็นปัจจุบันอยู่เสมอเพื่อสะท้อนการเปลี่ยนแปลงจากต้นฉบับ
+- ระบุให้ชัดเจนว่าซอร์สโค้ดของท่านเป็น Fork ของ Repository ดั้งเดิม
+
+#### 2.2. การเผยแพร่อัตโนมัติ
+
+การเผยแพร่ทุกครั้งต้องดำเนินการผ่าน GitHub Actions เท่านั้น
+
+#### 2.3. การให้เครดิต (Attribution)
+
+เมื่อเผยแพร่ผลิตภัณฑ์ที่ดัดแปลงจาก FreeDome Player ท่านต้อง:
+
+- ระบุเครดิตของผู้ถือลิขสิทธิ์พร้อมลิงก์ไปที่ https://github.com/FreeDome/flutter_freedome_player
+- แสดงลิงก์ไปยังข้อตกลงสิทธิ์ดั้งเดิม
+- บันทึกการเปลี่ยนแปลงใน README ของ Repository ของท่าน
+
+#### 2.4. ห้ามการใส่มัลแวร์
+
+ห้ามอย่างเด็ดขาดที่จะเพิ่มมัลแวร์หรือรหัสอันตรายใด ๆ ลงในผลิตภัณฑ์
+
+#### 2.5. ข้อจำกัดการใช้ชื่อและอินเทอร์เฟซ
+
+ห้ามเผยแพร่แอปพลิเคชันในร้านค้าแอปใดๆ เช่น Google Play, App Store, F-Droid, Microsoft Store, Huawei AppGallery หรือแพลตฟอร์มอื่นใดด้วยชื่อหรือหน้าตาที่คล้ายกับ FreeDome Player จนอาจทำให้เกิดความเข้าใจผิด
+
+#### 2.6. การใช้งานเชิงพาณิชย์
+
+**ฟรีสำหรับการใช้งานที่ไม่ใช่เชิงพาณิชย์**: ผลิตภัณฑ์นี้ฟรีสำหรับการใช้งานที่ไม่ใช่เชิงพาณิชย์ รวมถึง:
+- สถาบันการศึกษา (โรงเรียน มหาวิทยาลัย วิทยาลัย)
+- วัตถุประสงค์ทางการศึกษาและการฝึกอบรม
+- การวิจัยและพัฒนาสำหรับโครงการที่ไม่ใช่เชิงพาณิชย์
+- การเรียนรู้และการพัฒนาส่วนบุคคล
+
+**การใช้งานเชิงพาณิชย์ต้องมีใบอนุญาต**: การใช้งานเชิงพาณิชย์ของผลิตภัณฑ์นี้ต้องได้รับอนุญาตเป็นลายลักษณ์อักษรจากผู้ถือลิขสิทธิ์ก่อนดำเนินการเชิงพาณิชย์ใดๆ รวมถึง:
+- การขายหรือจำหน่ายเพื่อหากำไร
+- การใช้งานในผลิตภัณฑ์หรือบริการเชิงพาณิชย์
+- แอปพลิเคชันทางธุรกิจ
+- กิจกรรมใดๆ ที่สร้างรายได้
+
+#### 2.7. สิทธิของนักพัฒนาและโครงสร้างบริษัท
+
+สิทธิทั้งหมดเป็นของนักพัฒนาที่เฉพาะเจาะจงซึ่งเป็นส่วนหนึ่งของบริษัทที่พัฒนาซอฟต์แวร์นี้ นักพัฒนาอาจ:
+- นำเสนอโค้ดและผลงานในงานแสดงสินค้าและงานประชุม
+- แสดงความสำเร็จทางเทคนิคของตนต่อสาธารณะ
+- ใช้ผลงานของตนเพื่อพอร์ตโฟลิโอทางวิชาชีพและการพัฒนาอาชีพ
+
+อย่างไรก็ตาม นักพัฒนาไม่สามารถ:
+- ใช้โค้ดหรือผลงานเพื่อวัตถุประสงค์เชิงพาณิชย์ส่วนตัว
+- อนุญาตให้ใช้ซอฟต์แวร์อย่างอิสระนอกเหนือจากโครงสร้างบริษัท
+- โอนสิทธิเชิงพาณิชย์โดยไม่ได้รับอนุญาตจากบริษัท
+
+การอนุญาตเชิงพาณิชย์ทั้งหมดต้องดำเนินการผ่านบริษัทที่จ้างนักพัฒนาเหล่านี้
+
+#### 2.8. การทำให้เป็นมาตรฐานของใบอนุญาต
+
+ใบอนุญาตนี้อาจกลายเป็นมาตรฐาน และบริษัทอื่นๆ อาจคัดลอกข้อความใบอนุญาตเพื่อใช้เอง คล้ายกับใบอนุญาต MIT, Apache หรือ GPL
+
+### 3. การใช้งานส่วนประกอบ Open Source
+
+FreeDome Player ประกอบด้วยส่วนประกอบ Open Source ที่ได้รับอนุญาตตามเงื่อนไขอื่นๆ การใช้งาน FreeDome Player หมายถึงท่านยอมรับเงื่อนไขของแต่ละส่วนประกอบด้วย รายละเอียดระบุไว้ในไฟล์ LICENSE.md ที่แนบมาพร้อมผลิตภัณฑ์
+
+### 4. การปฏิเสธความรับผิด
+
+ผลิตภัณฑ์นี้ให้บริการ "ตามสภาพ" โดยไม่มีการรับประกันใดๆ ทั้งสิ้น ไม่ว่าจะแจ้งชัดหรือโดยนัย รวมถึงการรับประกันด้านความเหมาะสมกับวัตถุประสงค์เฉพาะใดๆ และผู้ถือลิขสิทธิ์จะไม่รับผิดชอบต่อความเสียหายใดๆ อันเกิดจากการใช้งานผลิตภัณฑ์นี้
+
+### 5. การละเมิดข้อตกลง
+
+ในกรณีที่มีการละเมิดข้อตกลงนี้ ผู้ถือลิขสิทธิ์มีสิทธิ์ขอให้หยุดเผยแพร่ผลิตภัณฑ์ และอาจดำเนินการทางกฎหมายหรือแจ้งไปยังร้านค้าแอปพลิเคชันเพื่อให้มีการลบหรือระงับการเผยแพร่ผลิตภัณฑ์ที่ละเมิด
+
+ข้อพิพาทใดๆ จะต้องได้รับการตัดสินตามกฎหมายแห่งราชอาณาจักรไทย
+
+---
+
+การใช้งาน FreeDome Player หมายถึงท่านได้อ่าน เข้าใจ และยอมรับข้อกำหนดและเงื่อนไขทั้งหมดตามข้อตกลงนี้แล้ว

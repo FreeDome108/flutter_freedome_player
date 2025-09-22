@@ -132,7 +132,6 @@ class FreeDomePlayer {
       case MediaFormat.glb:
         return PlayerConfig.default3D;
       case MediaFormat.unknown:
-      default:
         return const PlayerConfig();
     }
   }

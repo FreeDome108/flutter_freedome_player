@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -35,7 +34,6 @@ class _ComicsPlayerState extends State<ComicsPlayer>
   late Animation<double> _fadeAnimation;
 
   List<String> _pages = [];
-  Map<String, dynamic>? _metadata;
   int _currentPage = 0;
   bool _isLoading = true;
   String? _error;
@@ -75,8 +73,7 @@ class _ComicsPlayerState extends State<ComicsPlayer>
         _error = null;
       });
 
-      // Загружаем метаданные из MediaContent
-      _metadata = widget.content.metadata;
+      // Метаданные доступны в widget.content.metadata
 
       // Загружаем страницы
       _pages = await _getComicsPages();

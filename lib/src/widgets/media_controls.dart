@@ -29,7 +29,6 @@ class _MediaControlsState extends State<MediaControls>
     with TickerProviderStateMixin {
   late AnimationController _slideController;
   late Animation<Offset> _slideAnimation;
-  bool _isVisible = true;
 
   @override
   void initState() {
@@ -57,17 +56,6 @@ class _MediaControlsState extends State<MediaControls>
     super.dispose();
   }
 
-  void _toggleVisibility() {
-    setState(() {
-      _isVisible = !_isVisible;
-    });
-
-    if (_isVisible) {
-      _slideController.forward();
-    } else {
-      _slideController.reverse();
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -350,9 +338,9 @@ class _MediaControlsState extends State<MediaControls>
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
-              color: widget.controller.isPlaying
-                  ? Colors.green.withOpacity(0.2)
-                  : Colors.grey.withOpacity(0.2),
+                  color: widget.controller.isPlaying 
+                      ? Colors.green.withValues(alpha: 0.2)
+                      : Colors.grey.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
@@ -509,6 +497,6 @@ class _MediaControlsState extends State<MediaControls>
   String _formatDuration(Duration duration) {
     final minutes = duration.inMinutes;
     final seconds = duration.inSeconds % 60;
-    return '${minutes}:${seconds.toString().padLeft(2, '0')}';
+    return '$minutes:${seconds.toString().padLeft(2, '0')}';
   }
 }

@@ -1,0 +1,21 @@
+# Exclude development files
+.git/
+.gitignore
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# Exclude build artifacts
+build/
+.dart_tool/
+
+# Exclude local configuration
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+# Exclude additional documentation that's not needed for pub
+MIGRATION_GUIDE.md
+FREEDOME_PLAYER_IMPLEMENTATION_SUMMARY.md

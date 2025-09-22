@@ -213,7 +213,6 @@ class _FreeDomePlayerWidgetState extends State<FreeDomePlayerWidget> {
         );
 
       case MediaFormat.unknown:
-      default:
         return _buildUnsupportedFormatMessage(content.format);
     }
   }

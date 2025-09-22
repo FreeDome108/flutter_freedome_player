@@ -2,6 +2,10 @@ name: flutter_freedome_player
 description: "Flutter plugin for playing 3D/AR/VR content and various media formats including .comics, .boranko, collada and others. Supports both screen display and dome projections."
 version: 1.0.0
 homepage: https://github.com/FreeDome/flutter_freedome_player
+repository: https://github.com/FreeDome/flutter_freedome_player
+issue_tracker: https://github.com/FreeDome/flutter_freedome_player/issues
+documentation: https://github.com/FreeDome/flutter_freedome_player#readme
+license: NativeMindNONC
 
 environment:
   sdk: ^3.9.2
