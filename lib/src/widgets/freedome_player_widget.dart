@@ -250,10 +250,7 @@ class _FreeDomePlayerWidgetState extends State<FreeDomePlayerWidget> {
             SizedBox(height: 16),
             Text(
               'Загрузка контента...',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-              ),
+              style: TextStyle(color: Colors.white, fontSize: 16),
             ),
           ],
         ),
@@ -276,11 +273,7 @@ class _FreeDomePlayerWidgetState extends State<FreeDomePlayerWidget> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              const Icon(
-                Icons.error_outline,
-                color: Colors.red,
-                size: 48,
-              ),
+              const Icon(Icons.error_outline, color: Colors.red, size: 48),
               const SizedBox(height: 16),
               Text(
                 'Ошибка плеера',
@@ -293,10 +286,7 @@ class _FreeDomePlayerWidgetState extends State<FreeDomePlayerWidget> {
               const SizedBox(height: 8),
               Text(
                 error,
-                style: const TextStyle(
-                  color: Colors.white70,
-                  fontSize: 14,
-                ),
+                style: const TextStyle(color: Colors.white70, fontSize: 14),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(height: 20),
@@ -336,11 +326,7 @@ class _FreeDomePlayerWidgetState extends State<FreeDomePlayerWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.play_circle_outline,
-              size: 80,
-              color: Colors.grey,
-            ),
+            Icon(Icons.play_circle_outline, size: 80, color: Colors.grey),
             SizedBox(height: 16),
             Text(
               'FreeDome Player',
@@ -353,10 +339,7 @@ class _FreeDomePlayerWidgetState extends State<FreeDomePlayerWidget> {
             SizedBox(height: 8),
             Text(
               'Загрузите контент для воспроизведения',
-              style: TextStyle(
-                color: Colors.white70,
-                fontSize: 16,
-              ),
+              style: TextStyle(color: Colors.white70, fontSize: 16),
             ),
           ],
         ),
@@ -370,11 +353,7 @@ class _FreeDomePlayerWidgetState extends State<FreeDomePlayerWidget> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.error_outline,
-              size: 80,
-              color: Colors.orange,
-            ),
+            const Icon(Icons.error_outline, size: 80, color: Colors.orange),
             const SizedBox(height: 16),
             Text(
               'Неподдерживаемый формат',
@@ -387,10 +366,7 @@ class _FreeDomePlayerWidgetState extends State<FreeDomePlayerWidget> {
             const SizedBox(height: 8),
             Text(
               'Формат ${format.name} пока не поддерживается',
-              style: const TextStyle(
-                color: Colors.white70,
-                fontSize: 16,
-              ),
+              style: const TextStyle(color: Colors.white70, fontSize: 16),
             ),
           ],
         ),

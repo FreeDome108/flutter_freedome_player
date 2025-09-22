@@ -13,17 +13,18 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('end-to-end test', () {
-    testWidgets('tap on the floating action button, verify counter',
-        (tester) async {
+    testWidgets('tap on the floating action button, verify counter', (
+      tester,
+    ) async {
       app.main();
       await tester.pumpAndSettle();
 
       // Verify the FreeDome Player demo app loads
       expect(find.text('FreeDome Player Demo'), findsOneWidget);
-      
+
       // Verify platform information is displayed
       expect(find.text('Platform Information'), findsOneWidget);
-      
+
       // Verify examples section is displayed
       expect(find.text('Examples'), findsOneWidget);
     });

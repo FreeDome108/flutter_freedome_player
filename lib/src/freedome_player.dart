@@ -48,22 +48,16 @@ class FreeDomePlayer {
       '.dae',
       '.obj',
       '.gltf',
-      '.glb'
+      '.glb',
     ];
-    return supportedExtensions
-        .any((ext) => filePath.toLowerCase().endsWith(ext));
+    return supportedExtensions.any(
+      (ext) => filePath.toLowerCase().endsWith(ext),
+    );
   }
 
   /// Получить список поддерживаемых форматов
   List<String> getSupportedFormats() {
-    return [
-      'comics',
-      'boranko',
-      'collada',
-      'obj',
-      'gltf',
-      'glb',
-    ];
+    return ['comics', 'boranko', 'collada', 'obj', 'gltf', 'glb'];
   }
 
   /// Получить информацию о возможностях платформы
@@ -86,8 +80,9 @@ class FreeDomePlayer {
 
       // Проверяем AR поддержку
       try {
-        capabilities['ar_support'] =
-            await FlutterFreedomePlayerPlatform.instance.startARSession();
+        capabilities['ar_support'] = await FlutterFreedomePlayerPlatform
+            .instance
+            .startARSession();
         if (capabilities['ar_support']!) {
           await FlutterFreedomePlayerPlatform.instance.stopARSession();
         }
@@ -98,7 +93,7 @@ class FreeDomePlayer {
       // VR поддержка зависит от платформы
       capabilities['vr_support'] =
           defaultTargetPlatform == TargetPlatform.android ||
-              defaultTargetPlatform == TargetPlatform.iOS;
+          defaultTargetPlatform == TargetPlatform.iOS;
 
       // Купольная проекция доступна на всех платформах через HTTP
       capabilities['dome_projection'] = true;
@@ -201,6 +196,7 @@ class FreeDomePlayer {
   static void enableDebugLogging(bool enabled) {
     // Можно использовать для включения/выключения отладочных сообщений
     debugPrint(
-        'FreeDome Player debug logging: ${enabled ? 'enabled' : 'disabled'}');
+      'FreeDome Player debug logging: ${enabled ? 'enabled' : 'disabled'}',
+    );
   }
 }

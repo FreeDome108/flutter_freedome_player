@@ -1,4 +1,3 @@
-
 // Core player functionality
 export 'src/freedome_player.dart';
 export 'src/freedome_player_controller.dart';

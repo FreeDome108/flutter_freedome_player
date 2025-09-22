@@ -64,11 +64,8 @@ flutter:
         pluginClass: FlutterFreedomePlayerPlugin
 
 topics:
-  - 3d
-  - ar
-  - vr
-  - comics
-  - boranko
-  - collada
-  - freedome
+  - three-d
+  - augmented-reality
+  - virtual-reality
+  - multimedia
   - dome-projection

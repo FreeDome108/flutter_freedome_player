@@ -7,7 +7,6 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 class MockFlutterFreedomePlayerPlatform
     with MockPlatformInterfaceMixin
     implements FlutterFreedomePlayerPlatform {
-
   @override
   Future<String?> getPlatformVersion() => Future.value('42');
 
@@ -27,12 +26,14 @@ class MockFlutterFreedomePlayerPlatform
   Future<bool> connectToDome(String host, int port) => Future.value(true);
 
   @override
-  Future<bool> sendOSCMessage(String address, List<dynamic> args) => Future.value(true);
+  Future<bool> sendOSCMessage(String address, List<dynamic> args) =>
+      Future.value(true);
 }
 
 void main() {
   final FreeDomePlayer freedomePlayerPlatform = FreeDomePlayer();
-  MockFlutterFreedomePlayerPlatform fakePlatform = MockFlutterFreedomePlayerPlatform();
+  MockFlutterFreedomePlayerPlatform fakePlatform =
+      MockFlutterFreedomePlayerPlatform();
 
   setUp(() {
     FlutterFreedomePlayerPlatform.instance = fakePlatform;
@@ -64,7 +65,7 @@ void main() {
       filePath: 'test.dae',
       name: 'Test Model',
     );
-    
+
     expect(content.name, 'Test Model');
     expect(content.format, MediaFormat.collada);
     expect(content.filePath, 'test.dae');

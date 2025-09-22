@@ -39,13 +39,10 @@ class _MediaControlsState extends State<MediaControls>
       vsync: this,
     );
 
-    _slideAnimation = Tween<Offset>(
-      begin: const Offset(0, 1),
-      end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _slideController,
-      curve: Curves.easeInOut,
-    ));
+    _slideAnimation = Tween<Offset>(begin: const Offset(0, 1), end: Offset.zero)
+        .animate(
+          CurvedAnimation(parent: _slideController, curve: Curves.easeInOut),
+        );
 
     _slideController.forward();
   }
@@ -55,7 +52,6 @@ class _MediaControlsState extends State<MediaControls>
     _slideController.dispose();
     super.dispose();
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -71,10 +67,7 @@ class _MediaControlsState extends State<MediaControls>
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [
-              Colors.transparent,
-              Colors.black.withOpacity(0.8),
-            ],
+            colors: [Colors.transparent, Colors.black.withOpacity(0.8)],
           ),
         ),
         child: SafeArea(
@@ -147,10 +140,7 @@ class _MediaControlsState extends State<MediaControls>
                   ),
                   Text(
                     content.format.name.toUpperCase(),
-                    style: const TextStyle(
-                      color: Colors.white70,
-                      fontSize: 12,
-                    ),
+                    style: const TextStyle(color: Colors.white70, fontSize: 12),
                   ),
                 ],
               ),
@@ -258,8 +248,9 @@ class _MediaControlsState extends State<MediaControls>
                     style: TextStyle(
                       color: isSelected ? Colors.white : Colors.white70,
                       fontSize: 12,
-                      fontWeight:
-                          isSelected ? FontWeight.bold : FontWeight.normal,
+                      fontWeight: isSelected
+                          ? FontWeight.bold
+                          : FontWeight.normal,
                     ),
                   ),
                 ],
@@ -314,10 +305,7 @@ class _MediaControlsState extends State<MediaControls>
                   const SizedBox(height: 2),
                   Text(
                     content.description!,
-                    style: const TextStyle(
-                      color: Colors.white70,
-                      fontSize: 12,
-                    ),
+                    style: const TextStyle(color: Colors.white70, fontSize: 12),
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                   ),
@@ -325,10 +313,7 @@ class _MediaControlsState extends State<MediaControls>
                 const SizedBox(height: 2),
                 Text(
                   '${content.format.name.toUpperCase()} • ${_getModeLabel(content.playbackMode)}',
-                  style: const TextStyle(
-                    color: Colors.white60,
-                    fontSize: 10,
-                  ),
+                  style: const TextStyle(color: Colors.white60, fontSize: 10),
                 ),
               ],
             ),
@@ -338,9 +323,9 @@ class _MediaControlsState extends State<MediaControls>
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
             decoration: BoxDecoration(
-                  color: widget.controller.isPlaying 
-                      ? Colors.green.withValues(alpha: 0.2)
-                      : Colors.grey.withValues(alpha: 0.2),
+              color: widget.controller.isPlaying
+                  ? Colors.green.withValues(alpha: 0.2)
+                  : Colors.grey.withValues(alpha: 0.2),
               borderRadius: BorderRadius.circular(12),
             ),
             child: Text(
@@ -398,10 +383,11 @@ class _MediaControlsState extends State<MediaControls>
                 'Дополнительная информация:',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              ...content.metadata!.entries.take(5).map((entry) => _buildInfoRow(
-                    entry.key,
-                    entry.value.toString(),
-                  )),
+              ...content.metadata!.entries
+                  .take(5)
+                  .map(
+                    (entry) => _buildInfoRow(entry.key, entry.value.toString()),
+                  ),
             ],
           ],
         ),
@@ -428,9 +414,7 @@ class _MediaControlsState extends State<MediaControls>
               style: const TextStyle(fontWeight: FontWeight.w500),
             ),
           ),
-          Expanded(
-            child: Text(value),
-          ),
+          Expanded(child: Text(value)),
         ],
       ),
     );

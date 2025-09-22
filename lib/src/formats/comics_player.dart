@@ -48,13 +48,9 @@ class _ComicsPlayerState extends State<ComicsPlayer>
       duration: const Duration(milliseconds: 300),
       vsync: this,
     );
-    _fadeAnimation = Tween<double>(
-      begin: 0.0,
-      end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _fadeController,
-      curve: Curves.easeInOut,
-    ));
+    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _fadeController, curve: Curves.easeInOut),
+    );
 
     _loadComics();
   }
@@ -199,9 +195,7 @@ class _ComicsPlayerState extends State<ComicsPlayer>
 
   Widget _buildLoadingWidget() {
     return Container(
-      decoration: BoxDecoration(
-        color: Color(widget.config.backgroundColor),
-      ),
+      decoration: BoxDecoration(color: Color(widget.config.backgroundColor)),
       child: const Center(
         child: CircularProgressIndicator(
           valueColor: AlwaysStoppedAnimation<Color>(Colors.blue),
@@ -212,25 +206,16 @@ class _ComicsPlayerState extends State<ComicsPlayer>
 
   Widget _buildErrorWidget() {
     return Container(
-      decoration: BoxDecoration(
-        color: Color(widget.config.backgroundColor),
-      ),
+      decoration: BoxDecoration(color: Color(widget.config.backgroundColor)),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Icon(
-              Icons.error_outline,
-              size: 64,
-              color: Colors.red,
-            ),
+            const Icon(Icons.error_outline, size: 64, color: Colors.red),
             const SizedBox(height: 16),
             Text(
               _error!,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-              ),
+              style: const TextStyle(color: Colors.white, fontSize: 16),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
@@ -252,9 +237,7 @@ class _ComicsPlayerState extends State<ComicsPlayer>
         });
       },
       child: Container(
-        decoration: BoxDecoration(
-          color: Color(widget.config.backgroundColor),
-        ),
+        decoration: BoxDecoration(color: Color(widget.config.backgroundColor)),
         child: Stack(
           children: [
             // Основной просмотрщик страниц
@@ -329,11 +312,7 @@ class _ComicsPlayerState extends State<ComicsPlayer>
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Icon(
-            Icons.broken_image,
-            size: 64,
-            color: Colors.grey,
-          ),
+          const Icon(Icons.broken_image, size: 64, color: Colors.grey),
           const SizedBox(height: 16),
           Text(
             'Ошибка загрузки страницы\n$pageName',
@@ -427,10 +406,7 @@ class _ComicsPlayerState extends State<ComicsPlayer>
             ),
             Text(
               '${_currentPage + 1} / ${_pages.length}',
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-              ),
+              style: const TextStyle(color: Colors.white, fontSize: 14),
             ),
           ],
         ),
