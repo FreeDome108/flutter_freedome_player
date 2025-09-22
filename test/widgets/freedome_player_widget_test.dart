@@ -6,24 +6,25 @@ import 'package:flutter_freedome_player/src/models/player_config.dart';
 
 void main() {
   group('FreeDomePlayerWidget', () {
-    testWidgets('should display placeholder when no content is provided', (tester) async {
-      await tester.pumpWidget(
-        const MaterialApp(
-          home: FreeDomePlayerWidget(),
-        ),
-      );
+    testWidgets('should display placeholder when no content is provided', (
+      tester,
+    ) async {
+      await tester.pumpWidget(const MaterialApp(home: FreeDomePlayerWidget()));
 
       expect(find.text('FreeDome Player'), findsOneWidget);
-      expect(find.text('Загрузите контент для воспроизведения'), findsOneWidget);
+      expect(
+        find.text('Загрузите контент для воспроизведения'),
+        findsOneWidget,
+      );
       expect(find.byIcon(Icons.play_circle_outline), findsOneWidget);
     });
 
-    testWidgets('should display loading indicator when loading', (tester) async {
+    testWidgets('should display loading indicator when loading', (
+      tester,
+    ) async {
       await tester.pumpWidget(
         const MaterialApp(
-          home: FreeDomePlayerWidget(
-            filePath: 'assets/test.dae',
-          ),
+          home: FreeDomePlayerWidget(filePath: 'assets/test.dae'),
         ),
       );
 
@@ -32,7 +33,9 @@ void main() {
       expect(find.text('Загрузка контента...'), findsOneWidget);
     });
 
-    testWidgets('should display comics player for comics content', (tester) async {
+    testWidgets('should display comics player for comics content', (
+      tester,
+    ) async {
       const content = MediaContent(
         id: 'test',
         name: 'Test Comics',
@@ -42,10 +45,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: FreeDomePlayerWidget(
-            content: content,
-            showControls: false,
-          ),
+          home: FreeDomePlayerWidget(content: content, showControls: false),
         ),
       );
 
@@ -65,10 +65,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: FreeDomePlayerWidget(
-            content: content,
-            showControls: false,
-          ),
+          home: FreeDomePlayerWidget(content: content, showControls: false),
         ),
       );
 
@@ -78,7 +75,9 @@ void main() {
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });
 
-    testWidgets('should display boranko player for boranko content', (tester) async {
+    testWidgets('should display boranko player for boranko content', (
+      tester,
+    ) async {
       const content = MediaContent(
         id: 'test',
         name: 'Test Boranko',
@@ -88,10 +87,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: FreeDomePlayerWidget(
-            content: content,
-            showControls: false,
-          ),
+          home: FreeDomePlayerWidget(content: content, showControls: false),
         ),
       );
 
@@ -101,31 +97,36 @@ void main() {
       expect(find.byType(CircularProgressIndicator), findsOneWidget);
     });
 
-    testWidgets('should display unsupported format message for unknown content', (tester) async {
-      const content = MediaContent(
-        id: 'test',
-        name: 'Unknown',
-        filePath: 'assets/test.unknown',
-        format: MediaFormat.unknown,
-      );
+    testWidgets(
+      'should display unsupported format message for unknown content',
+      (tester) async {
+        const content = MediaContent(
+          id: 'test',
+          name: 'Unknown',
+          filePath: 'assets/test.unknown',
+          format: MediaFormat.unknown,
+        );
 
-      await tester.pumpWidget(
-        const MaterialApp(
-          home: FreeDomePlayerWidget(
-            content: content,
-            showControls: false,
+        await tester.pumpWidget(
+          const MaterialApp(
+            home: FreeDomePlayerWidget(content: content, showControls: false),
           ),
-        ),
-      );
+        );
 
-      await tester.pump();
+        await tester.pump();
 
-      expect(find.text('Неподдерживаемый формат'), findsOneWidget);
-      expect(find.text('Формат unknown пока не поддерживается'), findsOneWidget);
-      expect(find.byIcon(Icons.error_outline), findsOneWidget);
-    });
+        expect(find.text('Неподдерживаемый формат'), findsOneWidget);
+        expect(
+          find.text('Формат unknown пока не поддерживается'),
+          findsOneWidget,
+        );
+        expect(find.byIcon(Icons.error_outline), findsOneWidget);
+      },
+    );
 
-    testWidgets('should show/hide controls based on showControls parameter', (tester) async {
+    testWidgets('should show/hide controls based on showControls parameter', (
+      tester,
+    ) async {
       const content = MediaContent(
         id: 'test',
         name: 'Test',
@@ -136,10 +137,7 @@ void main() {
       // Test with controls hidden
       await tester.pumpWidget(
         const MaterialApp(
-          home: FreeDomePlayerWidget(
-            content: content,
-            showControls: false,
-          ),
+          home: FreeDomePlayerWidget(content: content, showControls: false),
         ),
       );
 
@@ -151,10 +149,7 @@ void main() {
       // Test with controls shown
       await tester.pumpWidget(
         const MaterialApp(
-          home: FreeDomePlayerWidget(
-            content: content,
-            showControls: true,
-          ),
+          home: FreeDomePlayerWidget(content: content, showControls: true),
         ),
       );
 
@@ -218,10 +213,7 @@ void main() {
       // Start with first config
       await tester.pumpWidget(
         const MaterialApp(
-          home: FreeDomePlayerWidget(
-            content: content,
-            config: config1,
-          ),
+          home: FreeDomePlayerWidget(content: content, config: config1),
         ),
       );
 
@@ -230,10 +222,7 @@ void main() {
       // Change to second config
       await tester.pumpWidget(
         const MaterialApp(
-          home: FreeDomePlayerWidget(
-            content: content,
-            config: config2,
-          ),
+          home: FreeDomePlayerWidget(content: content, config: config2),
         ),
       );
 
@@ -260,18 +249,14 @@ void main() {
 
       // Start with comics content
       await tester.pumpWidget(
-        const MaterialApp(
-          home: FreeDomePlayerWidget(content: content1),
-        ),
+        const MaterialApp(home: FreeDomePlayerWidget(content: content1)),
       );
 
       await tester.pump();
 
       // Change to 3D model content
       await tester.pumpWidget(
-        const MaterialApp(
-          home: FreeDomePlayerWidget(content: content2),
-        ),
+        const MaterialApp(home: FreeDomePlayerWidget(content: content2)),
       );
 
       await tester.pump();
@@ -314,10 +299,7 @@ void main() {
       // Test with autoPlay false
       await tester.pumpWidget(
         const MaterialApp(
-          home: FreeDomePlayerWidget(
-            content: content,
-            autoPlay: false,
-          ),
+          home: FreeDomePlayerWidget(content: content, autoPlay: false),
         ),
       );
 
@@ -326,10 +308,7 @@ void main() {
       // Test with autoPlay true
       await tester.pumpWidget(
         const MaterialApp(
-          home: FreeDomePlayerWidget(
-            content: content,
-            autoPlay: true,
-          ),
+          home: FreeDomePlayerWidget(content: content, autoPlay: true),
         ),
       );
 

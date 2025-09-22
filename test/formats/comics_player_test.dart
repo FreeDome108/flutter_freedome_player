@@ -18,10 +18,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: ComicsPlayer(
-            content: content,
-            config: config,
-          ),
+          home: ComicsPlayer(content: content, config: config),
         ),
       );
 
@@ -30,7 +27,9 @@ void main() {
       expect(find.byType(Container), findsWidgets);
     });
 
-    testWidgets('should handle tap to toggle controls visibility', (tester) async {
+    testWidgets('should handle tap to toggle controls visibility', (
+      tester,
+    ) async {
       const content = MediaContent(
         id: 'test',
         name: 'Test Comics',
@@ -46,10 +45,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: ComicsPlayer(
-            content: content,
-            config: config,
-          ),
+          home: ComicsPlayer(content: content, config: config),
         ),
       );
 
@@ -169,10 +165,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: ComicsPlayer(
-            content: content,
-            config: config,
-          ),
+          home: ComicsPlayer(content: content, config: config),
         ),
       );
 
@@ -184,7 +177,9 @@ void main() {
       expect(decoration.color, equals(const Color(0xFF123456)));
     });
 
-    testWidgets('should display error widget when error occurs', (tester) async {
+    testWidgets('should display error widget when error occurs', (
+      tester,
+    ) async {
       const content = MediaContent(
         id: 'test',
         name: 'Test Comics',
@@ -196,10 +191,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: ComicsPlayer(
-            content: content,
-            config: config,
-          ),
+          home: ComicsPlayer(content: content, config: config),
         ),
       );
 
@@ -223,10 +215,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: ComicsPlayer(
-            content: content,
-            config: config,
-          ),
+          home: ComicsPlayer(content: content, config: config),
         ),
       );
 
@@ -234,11 +223,7 @@ void main() {
 
       // Remove widget
       await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(
-            body: Text('Different content'),
-          ),
-        ),
+        const MaterialApp(home: Scaffold(body: Text('Different content'))),
       );
 
       await tester.pump();
@@ -259,10 +244,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: ComicsPlayer(
-            content: content,
-            config: config,
-          ),
+          home: ComicsPlayer(content: content, config: config),
         ),
       );
 
@@ -279,20 +261,14 @@ void main() {
         name: 'Empty Comics',
         filePath: 'assets/empty.comics',
         format: MediaFormat.comics,
-        metadata: {
-          'pages': [],
-          'totalPages': 0,
-        },
+        metadata: {'pages': [], 'totalPages': 0},
       );
 
       const config = PlayerConfig.defaultComics;
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: ComicsPlayer(
-            content: content,
-            config: config,
-          ),
+          home: ComicsPlayer(content: content, config: config),
         ),
       );
 
@@ -320,10 +296,7 @@ void main() {
       for (final config in configs) {
         await tester.pumpWidget(
           MaterialApp(
-            home: ComicsPlayer(
-              content: content,
-              config: config,
-            ),
+            home: ComicsPlayer(content: content, config: config),
           ),
         );
 

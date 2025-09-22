@@ -19,16 +19,15 @@ void main() {
     });
 
     testWidgets('should create PlayerConfig correctly', (tester) async {
-      const config = PlayerConfig(
-        enableAR: true,
-        backgroundColor: 0xFF123456,
-      );
+      const config = PlayerConfig(enableAR: true, backgroundColor: 0xFF123456);
 
       expect(config.enableAR, isTrue);
       expect(config.backgroundColor, equals(0xFF123456));
     });
 
-    testWidgets('should create FreeDomePlayerController correctly', (tester) async {
+    testWidgets('should create FreeDomePlayerController correctly', (
+      tester,
+    ) async {
       final player = FreeDomePlayer();
       final controller = player.createController();
 
@@ -168,7 +167,10 @@ void main() {
       expect(controller.currentContent!.playbackMode, equals(PlaybackMode.ar));
 
       controller.switchPlaybackMode(PlaybackMode.dome);
-      expect(controller.currentContent!.playbackMode, equals(PlaybackMode.dome));
+      expect(
+        controller.currentContent!.playbackMode,
+        equals(PlaybackMode.dome),
+      );
 
       controller.dispose();
     });

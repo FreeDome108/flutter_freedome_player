@@ -10,33 +10,32 @@ void main() {
     setUp(() {
       platform = MethodChannelFlutterFreedomePlayer();
       methodCalls = <MethodCall>[];
-      
+
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        platform.methodChannel,
-        (MethodCall methodCall) async {
-          methodCalls.add(methodCall);
-          
-          switch (methodCall.method) {
-            case 'getPlatformVersion':
-              return 'Android 12 (API 31)';
-            case 'initializeRenderer':
-              return true;
-            case 'loadModel':
-              return true;
-            case 'startARSession':
-              return true; // ARCore available
-            case 'stopARSession':
-              return true;
-            case 'connectToDome':
-              return true;
-            case 'sendOSCMessage':
-              return true;
-            default:
-              return null;
-          }
-        },
-      );
+          .setMockMethodCallHandler(platform.methodChannel, (
+            MethodCall methodCall,
+          ) async {
+            methodCalls.add(methodCall);
+
+            switch (methodCall.method) {
+              case 'getPlatformVersion':
+                return 'Android 12 (API 31)';
+              case 'initializeRenderer':
+                return true;
+              case 'loadModel':
+                return true;
+              case 'startARSession':
+                return true; // ARCore available
+              case 'stopARSession':
+                return true;
+              case 'connectToDome':
+                return true;
+              case 'sendOSCMessage':
+                return true;
+              default:
+                return null;
+            }
+          });
     });
 
     tearDown(() {
@@ -61,7 +60,10 @@ void main() {
       final result = await platform.loadModel('assets/test.dae');
       expect(result, isTrue);
       expect(methodCalls.last.method, equals('loadModel'));
-      expect(methodCalls.last.arguments['modelPath'], equals('assets/test.dae'));
+      expect(
+        methodCalls.last.arguments['modelPath'],
+        equals('assets/test.dae'),
+      );
     });
 
     test('should start AR session on Android (ARCore)', () async {
@@ -85,7 +87,10 @@ void main() {
     });
 
     test('should send OSC messages on Android', () async {
-      final result = await platform.sendOSCMessage('/dome/radius', [5.0, 'fisheye']);
+      final result = await platform.sendOSCMessage('/dome/radius', [
+        5.0,
+        'fisheye',
+      ]);
       expect(result, isTrue);
       expect(methodCalls.last.method, equals('sendOSCMessage'));
       expect(methodCalls.last.arguments['address'], equals('/dome/radius'));
@@ -95,16 +100,15 @@ void main() {
     test('should handle method call errors gracefully on Android', () async {
       // Set up error response
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        platform.methodChannel,
-        (MethodCall methodCall) async {
-          throw PlatformException(
-            code: 'ANDROID_ERROR',
-            message: 'Android specific error',
-            details: 'ARCore not available',
-          );
-        },
-      );
+          .setMockMethodCallHandler(platform.methodChannel, (
+            MethodCall methodCall,
+          ) async {
+            throw PlatformException(
+              code: 'ANDROID_ERROR',
+              message: 'Android specific error',
+              details: 'ARCore not available',
+            );
+          });
 
       final result = await platform.startARSession();
       expect(result, isFalse);
@@ -113,9 +117,9 @@ void main() {
     test('should handle null responses on Android', () async {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(
-        platform.methodChannel,
-        (MethodCall methodCall) async => null,
-      );
+            platform.methodChannel,
+            (MethodCall methodCall) async => null,
+          );
 
       final versionResult = await platform.getPlatformVersion();
       expect(versionResult, isNull);
@@ -142,22 +146,25 @@ void main() {
       // Test AR session with permission handling
       final result = await platform.startARSession();
       expect(result, isTrue);
-      
+
       // Should have called the AR session method
-      expect(methodCalls.any((call) => call.method == 'startARSession'), isTrue);
+      expect(
+        methodCalls.any((call) => call.method == 'startARSession'),
+        isTrue,
+      );
     });
 
     test('should support Android hardware features', () async {
       // Test hardware specific features
       final features = [
         'initializeRenderer', // GPU acceleration
-        'startARSession',     // ARCore
-        'connectToDome',      // Network connectivity
+        'startARSession', // ARCore
+        'connectToDome', // Network connectivity
       ];
 
       for (final feature in features) {
         methodCalls.clear();
-        
+
         switch (feature) {
           case 'initializeRenderer':
             await platform.initializeRenderer();

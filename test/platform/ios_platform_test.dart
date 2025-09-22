@@ -10,33 +10,32 @@ void main() {
     setUp(() {
       platform = MethodChannelFlutterFreedomePlayer();
       methodCalls = <MethodCall>[];
-      
+
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        platform.methodChannel,
-        (MethodCall methodCall) async {
-          methodCalls.add(methodCall);
-          
-          switch (methodCall.method) {
-            case 'getPlatformVersion':
-              return 'iOS 18.6.2';
-            case 'initializeRenderer':
-              return true;
-            case 'loadModel':
-              return true;
-            case 'startARSession':
-              return true; // ARKit available
-            case 'stopARSession':
-              return true;
-            case 'connectToDome':
-              return true;
-            case 'sendOSCMessage':
-              return true;
-            default:
-              return null;
-          }
-        },
-      );
+          .setMockMethodCallHandler(platform.methodChannel, (
+            MethodCall methodCall,
+          ) async {
+            methodCalls.add(methodCall);
+
+            switch (methodCall.method) {
+              case 'getPlatformVersion':
+                return 'iOS 18.6.2';
+              case 'initializeRenderer':
+                return true;
+              case 'loadModel':
+                return true;
+              case 'startARSession':
+                return true; // ARKit available
+              case 'stopARSession':
+                return true;
+              case 'connectToDome':
+                return true;
+              case 'sendOSCMessage':
+                return true;
+              default:
+                return null;
+            }
+          });
     });
 
     tearDown(() {
@@ -61,7 +60,10 @@ void main() {
       final result = await platform.loadModel('assets/test.dae');
       expect(result, isTrue);
       expect(methodCalls.last.method, equals('loadModel'));
-      expect(methodCalls.last.arguments['modelPath'], equals('assets/test.dae'));
+      expect(
+        methodCalls.last.arguments['modelPath'],
+        equals('assets/test.dae'),
+      );
     });
 
     test('should start ARKit session on iOS', () async {
@@ -85,7 +87,11 @@ void main() {
     });
 
     test('should send OSC messages with low latency', () async {
-      final result = await platform.sendOSCMessage('/ios/touch', [1.0, 2.0, 'touch']);
+      final result = await platform.sendOSCMessage('/ios/touch', [
+        1.0,
+        2.0,
+        'touch',
+      ]);
       expect(result, isTrue);
       expect(methodCalls.last.method, equals('sendOSCMessage'));
       expect(methodCalls.last.arguments['address'], equals('/ios/touch'));
@@ -95,16 +101,15 @@ void main() {
     test('should handle iOS specific errors', () async {
       // Set up iOS specific error
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-          .setMockMethodCallHandler(
-        platform.methodChannel,
-        (MethodCall methodCall) async {
-          throw PlatformException(
-            code: 'IOS_ERROR',
-            message: 'ARKit not available on this device',
-            details: 'Device does not support ARKit',
-          );
-        },
-      );
+          .setMockMethodCallHandler(platform.methodChannel, (
+            MethodCall methodCall,
+          ) async {
+            throw PlatformException(
+              code: 'IOS_ERROR',
+              message: 'ARKit not available on this device',
+              details: 'Device does not support ARKit',
+            );
+          });
 
       final result = await platform.startARSession();
       expect(result, isFalse);
@@ -127,22 +132,25 @@ void main() {
       // Test camera permission for AR
       final result = await platform.startARSession();
       expect(result, isTrue);
-      
+
       // Should have requested AR session
-      expect(methodCalls.any((call) => call.method == 'startARSession'), isTrue);
+      expect(
+        methodCalls.any((call) => call.method == 'startARSession'),
+        isTrue,
+      );
     });
 
     test('should support iOS hardware features', () async {
       // Test iOS specific hardware
       final features = [
         'initializeRenderer', // Metal API
-        'startARSession',     // ARKit
-        'connectToDome',      // Network.framework
+        'startARSession', // ARKit
+        'connectToDome', // Network.framework
       ];
 
       for (final feature in features) {
         methodCalls.clear();
-        
+
         switch (feature) {
           case 'initializeRenderer':
             await platform.initializeRenderer();
@@ -173,7 +181,7 @@ void main() {
       // iOS supports VR through various frameworks
       final result = await platform.initializeRenderer();
       expect(result, isTrue);
-      
+
       // Should initialize renderer for VR
       expect(methodCalls.last.method, equals('initializeRenderer'));
     });

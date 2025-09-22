@@ -4,8 +4,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'test/models/media_content_test.dart' as media_content_test;
 import 'test/models/player_config_test.dart' as player_config_test;
 import 'test/models/dome_config_test.dart' as dome_config_test;
-import 'test/services/format_detector_service_test.dart' as format_detector_test;
-import 'test/services/dome_projection_service_test.dart' as dome_projection_test;
+import 'test/services/format_detector_service_test.dart'
+    as format_detector_test;
+import 'test/services/dome_projection_service_test.dart'
+    as dome_projection_test;
 import 'test/freedome_player_controller_test.dart' as controller_test;
 import 'test/freedome_player_api_test.dart' as api_test;
 import 'test/widgets/freedome_player_widget_test.dart' as widget_test;
@@ -17,12 +19,11 @@ import 'test/platform/ios_platform_test.dart' as ios_test;
 import 'test/platform/web_platform_test.dart' as web_test;
 
 /// Comprehensive test runner for FreeDome Player
-/// 
+///
 /// Run with: dart test_runner.dart
 /// Or: flutter test test_runner.dart
 void main() {
   group('🧪 FreeDome Player - Complete Test Suite', () {
-    
     group('📊 Models Tests', () {
       media_content_test.main();
       player_config_test.main();

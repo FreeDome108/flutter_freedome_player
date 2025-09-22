@@ -15,7 +15,7 @@ void main() {
     test('should be singleton', () {
       final player1 = FreeDomePlayer();
       final player2 = FreeDomePlayer();
-      
+
       expect(identical(player1, player2), isTrue);
     });
 
@@ -38,19 +38,25 @@ void main() {
       ];
 
       for (final file in supportedFiles) {
-        expect(player.isFormatSupported(file), isTrue, 
-               reason: '$file should be supported');
+        expect(
+          player.isFormatSupported(file),
+          isTrue,
+          reason: '$file should be supported',
+        );
       }
 
       for (final file in unsupportedFiles) {
-        expect(player.isFormatSupported(file), isFalse, 
-               reason: '$file should not be supported');
+        expect(
+          player.isFormatSupported(file),
+          isFalse,
+          reason: '$file should not be supported',
+        );
       }
     });
 
     test('should return correct supported formats list', () {
       final formats = player.getSupportedFormats();
-      
+
       expect(formats, hasLength(6));
       expect(formats, contains('comics'));
       expect(formats, contains('boranko'));
@@ -62,7 +68,7 @@ void main() {
 
     test('should create controller with default config', () {
       final controller = player.createController();
-      
+
       expect(controller, isA<FreeDomePlayerController>());
       expect(controller.config, isA<PlayerConfig>());
       expect(controller.hasContent, isFalse);
@@ -77,7 +83,7 @@ void main() {
       );
 
       final controller = player.createController(customConfig);
-      
+
       expect(controller.config, equals(customConfig));
     });
 
@@ -126,11 +132,12 @@ void main() {
       };
 
       for (final entry in testCases.entries) {
-        final content = FreeDomePlayer.createMediaContent(
-          filePath: entry.key,
+        final content = FreeDomePlayer.createMediaContent(filePath: entry.key);
+        expect(
+          content.format,
+          equals(entry.value),
+          reason: 'Failed for file: ${entry.key}',
         );
-        expect(content.format, equals(entry.value), 
-               reason: 'Failed for file: ${entry.key}');
       }
     });
 
@@ -144,11 +151,12 @@ void main() {
       };
 
       for (final entry in testCases.entries) {
-        final content = FreeDomePlayer.createMediaContent(
-          filePath: entry.key,
+        final content = FreeDomePlayer.createMediaContent(filePath: entry.key);
+        expect(
+          content.name,
+          equals(entry.value),
+          reason: 'Failed for path: ${entry.key}',
         );
-        expect(content.name, equals(entry.value), 
-               reason: 'Failed for path: ${entry.key}');
       }
     });
 
@@ -174,10 +182,10 @@ void main() {
     test('should handle debug logging', () {
       // Test enabling debug logging
       FreeDomePlayer.enableDebugLogging(true);
-      
+
       // Test disabling debug logging
       FreeDomePlayer.enableDebugLogging(false);
-      
+
       // Should not throw any errors
     });
 
@@ -278,7 +286,7 @@ void main() {
 
     test('should handle duration correctly', () {
       const duration = Duration(minutes: 5, seconds: 30);
-      
+
       final content = FreeDomePlayer.createMediaContent(
         filePath: 'test.comics',
         duration: duration,
@@ -289,7 +297,7 @@ void main() {
 
     test('should handle tags correctly', () {
       final tags = ['3d', 'ar', 'meditation', 'spiritual'];
-      
+
       final content = FreeDomePlayer.createMediaContent(
         filePath: 'test.boranko',
         tags: tags,
@@ -340,7 +348,7 @@ void main() {
 
     test('should get platform capabilities', () async {
       final capabilities = await player.getPlatformCapabilities();
-      
+
       expect(capabilities, isA<Map<String, bool>>());
       expect(capabilities.containsKey('ar_support'), isTrue);
       expect(capabilities.containsKey('vr_support'), isTrue);
@@ -351,7 +359,7 @@ void main() {
     test('should handle capability check errors', () async {
       // This test ensures that capability checking doesn't crash
       final capabilities = await player.getPlatformCapabilities();
-      
+
       // Should always return a map, even if some capabilities fail to check
       expect(capabilities, isA<Map<String, bool>>());
       expect(capabilities.isNotEmpty, isTrue);

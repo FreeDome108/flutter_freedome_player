@@ -70,7 +70,10 @@ void main() {
       expect(json['edgeBlending'], isTrue);
       expect(json['freedomeEngineUrl'], equals('http://test.com'));
       expect(json['quantumProperties']['resonanceFrequency'], equals(528.0));
-      expect(json['quantumProperties']['interferencePattern'], equals('healing'));
+      expect(
+        json['quantumProperties']['interferencePattern'],
+        equals('healing'),
+      );
     });
 
     test('should parse projection type correctly', () {
@@ -87,8 +90,11 @@ void main() {
       for (final entry in testCases.entries) {
         final json = {'projectionType': entry.key};
         final config = DomeConfig.fromJson(json);
-        expect(config.projectionType, equals(entry.value), 
-               reason: 'Failed for projection type: ${entry.key}');
+        expect(
+          config.projectionType,
+          equals(entry.value),
+          reason: 'Failed for projection type: ${entry.key}',
+        );
       }
     });
 
@@ -104,7 +110,10 @@ void main() {
         domeRadius: 10.0,
       );
 
-      expect(copy.projectionType, equals(DomeProjectionType.cubemap)); // Changed
+      expect(
+        copy.projectionType,
+        equals(DomeProjectionType.cubemap),
+      ); // Changed
       expect(copy.domeRadius, equals(10.0)); // Changed
       expect(copy.projectorCount, equals(1)); // Unchanged
       expect(copy.edgeBlending, equals(original.edgeBlending)); // Unchanged

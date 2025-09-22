@@ -111,15 +111,9 @@ void main() {
     });
 
     test('should handle equality correctly', () {
-      const config1 = PlayerConfig(
-        enableAR: true,
-        backgroundColor: 0xFF000000,
-      );
+      const config1 = PlayerConfig(enableAR: true, backgroundColor: 0xFF000000);
 
-      const config2 = PlayerConfig(
-        enableAR: true,
-        backgroundColor: 0xFF000000,
-      );
+      const config2 = PlayerConfig(enableAR: true, backgroundColor: 0xFF000000);
 
       const config3 = PlayerConfig(
         enableAR: false,
@@ -146,10 +140,7 @@ void main() {
     });
 
     test('should handle null dome config', () {
-      const config = PlayerConfig(
-        enableDomeProjection: true,
-        domeConfig: null,
-      );
+      const config = PlayerConfig(enableDomeProjection: true, domeConfig: null);
 
       expect(config.enableDomeProjection, isTrue);
       expect(config.domeConfig, isNull);
@@ -179,7 +170,10 @@ void main() {
 
       expect(deserialized.enableAR, equals(original.enableAR));
       expect(deserialized.enableVR, equals(original.enableVR));
-      expect(deserialized.enableDomeProjection, equals(original.enableDomeProjection));
+      expect(
+        deserialized.enableDomeProjection,
+        equals(original.enableDomeProjection),
+      );
       expect(deserialized.backgroundColor, equals(original.backgroundColor));
       expect(deserialized.renderQuality, equals(original.renderQuality));
       expect(deserialized.domeConfig, equals(original.domeConfig));

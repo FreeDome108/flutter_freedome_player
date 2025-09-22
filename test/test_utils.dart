@@ -11,20 +11,14 @@ class TestUtils {
 
   /// Wrap widget with Material theme for testing
   static Widget wrapWithMaterial(Widget child) {
-    return MaterialApp(
-      home: Scaffold(
-        body: child,
-      ),
-    );
+    return MaterialApp(home: Scaffold(body: child));
   }
 
   /// Wrap widget with Material theme and custom config
   static Widget wrapWithMaterialAndTheme(Widget child, {ThemeData? theme}) {
     return MaterialApp(
       theme: theme ?? ThemeData.dark(),
-      home: Scaffold(
-        body: child,
-      ),
+      home: Scaffold(body: child),
     );
   }
 
@@ -84,9 +78,8 @@ class MockWebViewPlatform extends WebViewPlatform {
 
 /// Mock WebView controller for testing
 class MockPlatformWebViewController extends PlatformWebViewController {
-  MockPlatformWebViewController() : super.implementation(
-    const PlatformWebViewControllerCreationParams()
-  );
+  MockPlatformWebViewController()
+    : super.implementation(const PlatformWebViewControllerCreationParams());
 
   @override
   Future<void> loadRequest(LoadRequestParams params) async {
@@ -133,7 +126,9 @@ class MockPlatformWebViewController extends PlatformWebViewController {
   }
 
   @override
-  Future<void> setPlatformNavigationDelegate(PlatformNavigationDelegate handler) async {
+  Future<void> setPlatformNavigationDelegate(
+    PlatformNavigationDelegate handler,
+  ) async {
     // Mock implementation
   }
 
@@ -175,29 +170,27 @@ class MockPlatformWebViewController extends PlatformWebViewController {
 
 /// Mock WebView widget for testing
 class MockPlatformWebViewWidget extends PlatformWebViewWidget {
-  MockPlatformWebViewWidget() : super.implementation(
-    const PlatformWebViewWidgetCreationParams(
-      key: null,
-      controller: MockPlatformWebViewController(),
-    )
-  );
+  MockPlatformWebViewWidget()
+    : super.implementation(
+        const PlatformWebViewWidgetCreationParams(
+          key: null,
+          controller: MockPlatformWebViewController(),
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.grey,
-      child: const Center(
-        child: Text('Mock WebView'),
-      ),
+      child: const Center(child: Text('Mock WebView')),
     );
   }
 }
 
 /// Mock navigation delegate for testing
 class MockPlatformNavigationDelegate extends PlatformNavigationDelegate {
-  MockPlatformNavigationDelegate() : super.implementation(
-    const PlatformNavigationDelegateCreationParams()
-  );
+  MockPlatformNavigationDelegate()
+    : super.implementation(const PlatformNavigationDelegateCreationParams());
 
   @override
   Future<void> setOnPageStarted(PageEventCallback onPageStarted) async {
@@ -215,12 +208,16 @@ class MockPlatformNavigationDelegate extends PlatformNavigationDelegate {
   }
 
   @override
-  Future<void> setOnWebResourceError(WebResourceErrorCallback onWebResourceError) async {
+  Future<void> setOnWebResourceError(
+    WebResourceErrorCallback onWebResourceError,
+  ) async {
     // Mock implementation
   }
 
   @override
-  Future<void> setOnNavigationRequest(NavigationRequestCallback onNavigationRequest) async {
+  Future<void> setOnNavigationRequest(
+    NavigationRequestCallback onNavigationRequest,
+  ) async {
     // Mock implementation
   }
 
@@ -230,16 +227,17 @@ class MockPlatformNavigationDelegate extends PlatformNavigationDelegate {
   }
 
   @override
-  Future<void> setOnHttpAuthRequest(HttpAuthRequestCallback onHttpAuthRequest) async {
+  Future<void> setOnHttpAuthRequest(
+    HttpAuthRequestCallback onHttpAuthRequest,
+  ) async {
     // Mock implementation
   }
 }
 
 /// Mock cookie manager for testing
 class MockPlatformWebViewCookieManager extends PlatformWebViewCookieManager {
-  MockPlatformWebViewCookieManager() : super.implementation(
-    const PlatformWebViewCookieManagerCreationParams()
-  );
+  MockPlatformWebViewCookieManager()
+    : super.implementation(const PlatformWebViewCookieManagerCreationParams());
 
   @override
   Future<void> clearCookies() async {

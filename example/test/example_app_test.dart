@@ -32,11 +32,11 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Supported Formats'), findsOneWidget);
-      
+
       // Check for format chips
       final formatChips = [
         'COMICS',
-        'BORANKO', 
+        'BORANKO',
         'COLLADA',
         'OBJ',
         'GLTF',
@@ -48,24 +48,28 @@ void main() {
       }
     });
 
-    testWidgets('should display examples section with all buttons', (tester) async {
+    testWidgets('should display examples section with all buttons', (
+      tester,
+    ) async {
       await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
 
       expect(find.text('Examples'), findsOneWidget);
-      
+
       // Check for example buttons
       expect(find.text('Load Comics Example'), findsOneWidget);
       expect(find.text('Load 3D Model Example'), findsOneWidget);
       expect(find.text('Load Boranko Example'), findsOneWidget);
-      
+
       // Check for button icons
       expect(find.byIcon(Icons.menu_book), findsOneWidget);
       expect(find.byIcon(Icons.view_in_ar), findsOneWidget);
       expect(find.byIcon(Icons.psychology), findsOneWidget);
     });
 
-    testWidgets('should navigate to comics player when comics button tapped', (tester) async {
+    testWidgets('should navigate to comics player when comics button tapped', (
+      tester,
+    ) async {
       await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
 
@@ -75,12 +79,14 @@ void main() {
 
       // Should show player interface
       expect(find.byIcon(Icons.arrow_back), findsOneWidget);
-      
+
       // Should show loading or content
       expect(find.byType(CircularProgressIndicator), findsWidgets);
     });
 
-    testWidgets('should navigate to 3D player when 3D button tapped', (tester) async {
+    testWidgets('should navigate to 3D player when 3D button tapped', (
+      tester,
+    ) async {
       await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
 
@@ -90,27 +96,32 @@ void main() {
 
       // Should show player interface
       expect(find.byIcon(Icons.arrow_back), findsOneWidget);
-      
+
       // Should show loading or content
       expect(find.byType(CircularProgressIndicator), findsWidgets);
     });
 
-    testWidgets('should navigate to boranko player when boranko button tapped', (tester) async {
-      await tester.pumpWidget(const MyApp());
-      await tester.pumpAndSettle();
+    testWidgets(
+      'should navigate to boranko player when boranko button tapped',
+      (tester) async {
+        await tester.pumpWidget(const MyApp());
+        await tester.pumpAndSettle();
 
-      // Tap boranko example button
-      await tester.tap(find.text('Load Boranko Example'));
-      await tester.pumpAndSettle();
+        // Tap boranko example button
+        await tester.tap(find.text('Load Boranko Example'));
+        await tester.pumpAndSettle();
 
-      // Should show player interface
-      expect(find.byIcon(Icons.arrow_back), findsOneWidget);
-      
-      // Should show loading or content
-      expect(find.byType(CircularProgressIndicator), findsWidgets);
-    });
+        // Should show player interface
+        expect(find.byIcon(Icons.arrow_back), findsOneWidget);
 
-    testWidgets('should return to main screen when back button tapped', (tester) async {
+        // Should show loading or content
+        expect(find.byType(CircularProgressIndicator), findsWidgets);
+      },
+    );
+
+    testWidgets('should return to main screen when back button tapped', (
+      tester,
+    ) async {
       await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
 
@@ -128,7 +139,9 @@ void main() {
       expect(find.text('Examples'), findsOneWidget);
     });
 
-    testWidgets('should handle rapid navigation without crashes', (tester) async {
+    testWidgets('should handle rapid navigation without crashes', (
+      tester,
+    ) async {
       await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
 
@@ -143,7 +156,7 @@ void main() {
         for (final buttonText in exampleButtons) {
           await tester.tap(find.text(buttonText));
           await tester.pump(const Duration(milliseconds: 500));
-          
+
           final backButton = find.byIcon(Icons.arrow_back);
           if (tester.any(backButton)) {
             await tester.tap(backButton);
@@ -158,7 +171,9 @@ void main() {
       expect(find.text('FreeDome Player Demo'), findsOneWidget);
     });
 
-    testWidgets('should display error messages when content fails to load', (tester) async {
+    testWidgets('should display error messages when content fails to load', (
+      tester,
+    ) async {
       await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
 
@@ -174,7 +189,9 @@ void main() {
       expect(find.byType(MaterialApp), findsOneWidget);
     });
 
-    testWidgets('should maintain consistent theme throughout app', (tester) async {
+    testWidgets('should maintain consistent theme throughout app', (
+      tester,
+    ) async {
       await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
 
@@ -197,7 +214,7 @@ void main() {
       // Simulate orientation change
       tester.view.physicalSize = const Size(2400, 1080); // Landscape
       tester.view.devicePixelRatio = 3.0;
-      
+
       await tester.pump();
       await tester.pumpAndSettle();
 
@@ -222,7 +239,7 @@ void main() {
         // Load 3D example (most memory intensive)
         await tester.tap(find.text('Load 3D Model Example'));
         await tester.pump(const Duration(milliseconds: 500));
-        
+
         final backButton = find.byIcon(Icons.arrow_back);
         if (tester.any(backButton)) {
           await tester.tap(backButton);
@@ -242,7 +259,7 @@ void main() {
 
       // Check initial loading state for platform info
       await tester.pump(const Duration(milliseconds: 100));
-      
+
       // Should show some loading indicators or content
       expect(find.byType(Widget), findsWidgets);
     });
@@ -253,7 +270,7 @@ void main() {
 
       // Check for semantic labels and tooltips
       expect(find.byType(Semantics), findsWidgets);
-      
+
       // Buttons should be accessible
       final buttons = find.byType(ElevatedButton);
       expect(buttons, findsWidgets);
@@ -285,43 +302,48 @@ void main() {
   });
 
   group('Example App Performance Tests', () {
-    testWidgets('should load main screen within reasonable time', (tester) async {
+    testWidgets('should load main screen within reasonable time', (
+      tester,
+    ) async {
       final stopwatch = Stopwatch()..start();
-      
+
       await tester.pumpWidget(const MyApp());
       await tester.pumpAndSettle();
-      
+
       stopwatch.stop();
-      
+
       // Should load within 5 seconds
       expect(stopwatch.elapsedMilliseconds, lessThan(5000));
     });
 
-    testWidgets('should handle multiple rapid taps without performance issues', (tester) async {
-      await tester.pumpWidget(const MyApp());
-      await tester.pumpAndSettle();
+    testWidgets(
+      'should handle multiple rapid taps without performance issues',
+      (tester) async {
+        await tester.pumpWidget(const MyApp());
+        await tester.pumpAndSettle();
 
-      final stopwatch = Stopwatch()..start();
+        final stopwatch = Stopwatch()..start();
 
-      // Rapidly tap buttons
-      for (int i = 0; i < 10; i++) {
-        await tester.tap(find.text('Load Comics Example'));
-        await tester.pump(const Duration(milliseconds: 50));
-        
-        final backButton = find.byIcon(Icons.arrow_back);
-        if (tester.any(backButton)) {
-          await tester.tap(backButton);
+        // Rapidly tap buttons
+        for (int i = 0; i < 10; i++) {
+          await tester.tap(find.text('Load Comics Example'));
           await tester.pump(const Duration(milliseconds: 50));
+
+          final backButton = find.byIcon(Icons.arrow_back);
+          if (tester.any(backButton)) {
+            await tester.tap(backButton);
+            await tester.pump(const Duration(milliseconds: 50));
+          }
         }
-      }
 
-      stopwatch.stop();
+        stopwatch.stop();
 
-      // Should complete within reasonable time
-      expect(stopwatch.elapsedMilliseconds, lessThan(10000));
-      
-      // Should still be functional
-      expect(find.text('FreeDome Player Demo'), findsOneWidget);
-    });
+        // Should complete within reasonable time
+        expect(stopwatch.elapsedMilliseconds, lessThan(10000));
+
+        // Should still be functional
+        expect(find.text('FreeDome Player Demo'), findsOneWidget);
+      },
+    );
   });
 }

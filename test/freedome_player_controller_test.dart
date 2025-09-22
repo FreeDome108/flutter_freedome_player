@@ -66,7 +66,10 @@ void main() {
     test('should auto-configure for different formats', () {
       // Test comics auto-configuration
       const comicsContent = MediaContent(
-        id: '1', name: 'Comics', filePath: 'test.comics', format: MediaFormat.comics,
+        id: '1',
+        name: 'Comics',
+        filePath: 'test.comics',
+        format: MediaFormat.comics,
       );
 
       controller.loadMediaContent(comicsContent);
@@ -76,7 +79,10 @@ void main() {
 
       // Test 3D model auto-configuration
       const modelContent = MediaContent(
-        id: '2', name: 'Model', filePath: 'test.dae', format: MediaFormat.collada,
+        id: '2',
+        name: 'Model',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
 
       controller.loadMediaContent(modelContent);
@@ -87,7 +93,10 @@ void main() {
 
     test('should handle play/pause/stop states', () async {
       const content = MediaContent(
-        id: 'test', name: 'Test', filePath: 'test.dae', format: MediaFormat.collada,
+        id: 'test',
+        name: 'Test',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
 
       controller.loadMediaContent(content);
@@ -111,7 +120,10 @@ void main() {
 
     test('should toggle play/pause correctly', () async {
       const content = MediaContent(
-        id: 'test', name: 'Test', filePath: 'test.dae', format: MediaFormat.collada,
+        id: 'test',
+        name: 'Test',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
 
       controller.loadMediaContent(content);
@@ -130,7 +142,10 @@ void main() {
 
     test('should clear content correctly', () {
       const content = MediaContent(
-        id: 'test', name: 'Test', filePath: 'test.dae', format: MediaFormat.collada,
+        id: 'test',
+        name: 'Test',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
 
       controller.loadMediaContent(content);
@@ -152,7 +167,10 @@ void main() {
 
     test('should switch playback modes correctly', () {
       const content = MediaContent(
-        id: 'test', name: 'Test', filePath: 'test.dae', format: MediaFormat.collada,
+        id: 'test',
+        name: 'Test',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
 
       controller.loadMediaContent(content);
@@ -165,14 +183,20 @@ void main() {
 
       // Test switching to dome mode
       controller.switchPlaybackMode(PlaybackMode.dome);
-      expect(controller.currentContent!.playbackMode, equals(PlaybackMode.dome));
+      expect(
+        controller.currentContent!.playbackMode,
+        equals(PlaybackMode.dome),
+      );
       expect(controller.config.enableDomeProjection, isTrue);
       expect(controller.config.enableAR, isFalse);
     });
 
     test('should reject unsupported playback modes', () {
       const content = MediaContent(
-        id: 'test', name: 'Comics', filePath: 'test.comics', format: MediaFormat.comics,
+        id: 'test',
+        name: 'Comics',
+        filePath: 'test.comics',
+        format: MediaFormat.comics,
       );
 
       controller.loadMediaContent(content);
@@ -186,7 +210,10 @@ void main() {
     test('should get available playback modes correctly', () {
       // Test for comics
       const comicsContent = MediaContent(
-        id: '1', name: 'Comics', filePath: 'test.comics', format: MediaFormat.comics,
+        id: '1',
+        name: 'Comics',
+        filePath: 'test.comics',
+        format: MediaFormat.comics,
       );
 
       controller.loadMediaContent(comicsContent);
@@ -195,7 +222,10 @@ void main() {
 
       // Test for 3D model
       const modelContent = MediaContent(
-        id: '2', name: 'Model', filePath: 'test.dae', format: MediaFormat.collada,
+        id: '2',
+        name: 'Model',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
 
       controller.loadMediaContent(modelContent);
@@ -206,7 +236,10 @@ void main() {
 
       // Test for boranko
       const borankoContent = MediaContent(
-        id: '3', name: 'Boranko', filePath: 'test.boranko', format: MediaFormat.boranko,
+        id: '3',
+        name: 'Boranko',
+        filePath: 'test.boranko',
+        format: MediaFormat.boranko,
       );
 
       controller.loadMediaContent(borankoContent);
@@ -217,8 +250,11 @@ void main() {
     });
 
     test('should handle no content gracefully', () {
-      expect(controller.getAvailablePlaybackModes(), equals([PlaybackMode.screen]));
-      
+      expect(
+        controller.getAvailablePlaybackModes(),
+        equals([PlaybackMode.screen]),
+      );
+
       // These should not crash when no content is loaded
       controller.togglePlayPause();
       controller.stop();
@@ -235,7 +271,10 @@ void main() {
 
       // Load content
       const content = MediaContent(
-        id: 'test', name: 'Test', filePath: 'test.dae', format: MediaFormat.collada,
+        id: 'test',
+        name: 'Test',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
       controller.loadMediaContent(content);
       expect(notificationCount, equals(1));
@@ -253,7 +292,10 @@ void main() {
     test('should handle format-specific configurations', () {
       // Test Boranko format
       const borankoContent = MediaContent(
-        id: '1', name: 'Boranko', filePath: 'test.boranko', format: MediaFormat.boranko,
+        id: '1',
+        name: 'Boranko',
+        filePath: 'test.boranko',
+        format: MediaFormat.boranko,
       );
 
       controller.loadMediaContent(borankoContent);
@@ -263,7 +305,10 @@ void main() {
 
       // Test Comics format
       const comicsContent = MediaContent(
-        id: '2', name: 'Comics', filePath: 'test.comics', format: MediaFormat.comics,
+        id: '2',
+        name: 'Comics',
+        filePath: 'test.comics',
+        format: MediaFormat.comics,
       );
 
       controller.loadMediaContent(comicsContent);
@@ -274,13 +319,16 @@ void main() {
 
     test('should maintain state consistency', () {
       const content = MediaContent(
-        id: 'test', name: 'Test', filePath: 'test.dae', format: MediaFormat.collada,
+        id: 'test',
+        name: 'Test',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
 
       // Load content and play
       controller.loadMediaContent(content);
       controller.togglePlayPause();
-      
+
       expect(controller.hasContent, isTrue);
       expect(controller.isPlaying, isTrue);
       expect(controller.error, isNull);
@@ -293,11 +341,14 @@ void main() {
 
     test('should handle unknown format gracefully', () {
       const unknownContent = MediaContent(
-        id: 'test', name: 'Unknown', filePath: 'test.unknown', format: MediaFormat.unknown,
+        id: 'test',
+        name: 'Unknown',
+        filePath: 'test.unknown',
+        format: MediaFormat.unknown,
       );
 
       controller.loadMediaContent(unknownContent);
-      
+
       // Should not crash and should have basic config
       expect(controller.hasContent, isTrue);
       expect(controller.config, isA<PlayerConfig>());

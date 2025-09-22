@@ -28,8 +28,11 @@ void main() {
 
       for (final entry in testCases.entries) {
         final detected = service.detectFormat(entry.key);
-        expect(detected, equals(entry.value), 
-               reason: 'Failed for file: ${entry.key}');
+        expect(
+          detected,
+          equals(entry.value),
+          reason: 'Failed for file: ${entry.key}',
+        );
       }
     });
 
@@ -45,8 +48,11 @@ void main() {
 
       for (final filePath in testCases) {
         final detected = service.detectFormat(filePath);
-        expect(detected, isNot(equals(MediaFormat.unknown)), 
-               reason: 'Should detect format for: $filePath');
+        expect(
+          detected,
+          isNot(equals(MediaFormat.unknown)),
+          reason: 'Should detect format for: $filePath',
+        );
       }
     });
 
@@ -60,7 +66,7 @@ void main() {
 
     test('should return correct supported extensions', () {
       final extensions = service.getSupportedExtensions();
-      
+
       expect(extensions, contains('.comics'));
       expect(extensions, contains('.boranko'));
       expect(extensions, contains('.dae'));
@@ -72,8 +78,10 @@ void main() {
 
     test('should provide format descriptions', () {
       final descriptions = {
-        MediaFormat.comics: 'Comics format - ZIP archive with images and metadata',
-        MediaFormat.boranko: 'Boranko format - Advanced 2D format with Z-depth for dome projection',
+        MediaFormat.comics:
+            'Comics format - ZIP archive with images and metadata',
+        MediaFormat.boranko:
+            'Boranko format - Advanced 2D format with Z-depth for dome projection',
         MediaFormat.collada: 'COLLADA format - XML-based 3D model format',
         MediaFormat.obj: 'OBJ format - Simple 3D model format',
         MediaFormat.gltf: 'glTF format - Modern 3D transmission format',
@@ -139,7 +147,9 @@ void main() {
 
     test('should provide recommended player settings for each format', () {
       // Test comics settings
-      final comicsSettings = service.getRecommendedPlayerSettings(MediaFormat.comics);
+      final comicsSettings = service.getRecommendedPlayerSettings(
+        MediaFormat.comics,
+      );
       expect(comicsSettings['enableAR'], isFalse);
       expect(comicsSettings['enableVR'], isFalse);
       expect(comicsSettings['enableDomeProjection'], isFalse);
@@ -147,13 +157,17 @@ void main() {
       expect(comicsSettings['backgroundColor'], equals(0xFF000000));
 
       // Test boranko settings
-      final borankoSettings = service.getRecommendedPlayerSettings(MediaFormat.boranko);
+      final borankoSettings = service.getRecommendedPlayerSettings(
+        MediaFormat.boranko,
+      );
       expect(borankoSettings['enableVR'], isTrue);
       expect(borankoSettings['enableDomeProjection'], isTrue);
       expect(borankoSettings['backgroundColor'], equals(0xFF000000));
 
       // Test 3D model settings
-      final colladaSettings = service.getRecommendedPlayerSettings(MediaFormat.collada);
+      final colladaSettings = service.getRecommendedPlayerSettings(
+        MediaFormat.collada,
+      );
       expect(colladaSettings['enableAR'], isTrue);
       expect(colladaSettings['enableDomeProjection'], isTrue);
       expect(colladaSettings['autoRotate'], isTrue);
@@ -161,7 +175,9 @@ void main() {
       expect(colladaSettings['backgroundColor'], equals(0xFF2A2A2A));
 
       // Test unknown format settings
-      final unknownSettings = service.getRecommendedPlayerSettings(MediaFormat.unknown);
+      final unknownSettings = service.getRecommendedPlayerSettings(
+        MediaFormat.unknown,
+      );
       expect(unknownSettings['enableAR'], isFalse);
       expect(unknownSettings['enableVR'], isFalse);
       expect(unknownSettings['enableDomeProjection'], isFalse);
@@ -170,24 +186,33 @@ void main() {
     test('should handle edge cases', () {
       // Empty string
       expect(service.detectFormat(''), equals(MediaFormat.unknown));
-      
+
       // No extension
       expect(service.detectFormat('filename'), equals(MediaFormat.unknown));
-      
+
       // Multiple dots
-      expect(service.detectFormat('file.backup.dae'), equals(MediaFormat.collada));
-      
+      expect(
+        service.detectFormat('file.backup.dae'),
+        equals(MediaFormat.collada),
+      );
+
       // Hidden files
-      expect(service.detectFormat('.hidden.comics'), equals(MediaFormat.comics));
-      
+      expect(
+        service.detectFormat('.hidden.comics'),
+        equals(MediaFormat.comics),
+      );
+
       // Path with spaces
-      expect(service.detectFormat('path with spaces/file.boranko'), equals(MediaFormat.boranko));
+      expect(
+        service.detectFormat('path with spaces/file.boranko'),
+        equals(MediaFormat.boranko),
+      );
     });
 
     test('should be singleton', () {
       final service1 = FormatDetectorService();
       final service2 = FormatDetectorService();
-      
+
       expect(identical(service1, service2), isTrue);
     });
   });

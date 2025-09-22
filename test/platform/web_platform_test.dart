@@ -39,7 +39,10 @@ void main() {
     });
 
     test('should send OSC messages via WebSocket on web', () async {
-      final result = await platform.sendOSCMessage('/web/message', ['test', 123]);
+      final result = await platform.sendOSCMessage('/web/message', [
+        'test',
+        123,
+      ]);
       expect(result, isTrue); // Web can send via WebSocket
     });
 
@@ -82,7 +85,7 @@ void main() {
         // Extract host and port for testing
         final uri = Uri.parse(url);
         final result = await platform.connectToDome(
-          uri.host, 
+          uri.host,
           uri.port != 0 ? uri.port : (uri.scheme == 'https' ? 443 : 80),
         );
         expect(result, isTrue);
@@ -92,7 +95,7 @@ void main() {
     test('should handle WebGL context loss', () async {
       // Simulate WebGL context loss and recovery
       await platform.initializeRenderer();
-      
+
       // Re-initialize after context loss
       final result = await platform.initializeRenderer();
       expect(result, isTrue);
@@ -102,7 +105,7 @@ void main() {
       // Test PWA specific functionality
       final result = await platform.initializeRenderer();
       expect(result, isTrue);
-      
+
       // Should work in PWA context
     });
 
@@ -133,7 +136,7 @@ void main() {
       // Test browser compatibility
       final version = await platform.getPlatformVersion();
       expect(version, isNotNull);
-      
+
       // Should work regardless of browser
       final result = await platform.initializeRenderer();
       expect(result, isTrue);
@@ -149,7 +152,7 @@ void main() {
       // Test Content Security Policy compliance
       final result = await platform.initializeRenderer();
       expect(result, isTrue);
-      
+
       // Should work within CSP restrictions
     });
   });

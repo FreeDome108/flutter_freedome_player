@@ -17,7 +17,7 @@ void main() {
     test('should be singleton', () {
       final service1 = DomeProjectionService();
       final service2 = DomeProjectionService();
-      
+
       expect(identical(service1, service2), isTrue);
     });
 
@@ -58,7 +58,7 @@ void main() {
 
     test('should disconnect properly', () async {
       await service.disconnect();
-      
+
       expect(service.isConnected, isFalse);
       expect(service.connectedDomeName, isNull);
       expect(service.config, isNull);
@@ -78,7 +78,10 @@ void main() {
 
       expect(config.quantumProperties.resonanceFrequency, equals(432.0));
       expect(config.quantumProperties.interferencePattern, equals('cosmic'));
-      expect(config.quantumProperties.consciousnessLevel, equals('enlightenment'));
+      expect(
+        config.quantumProperties.consciousnessLevel,
+        equals('enlightenment'),
+      );
     });
 
     test('should handle media content for dome projection', () {
@@ -108,10 +111,7 @@ void main() {
     });
 
     test('should handle OSC configuration', () {
-      const config = DomeConfig(
-        oscHost: '192.168.1.100',
-        oscPort: 9000,
-      );
+      const config = DomeConfig(oscHost: '192.168.1.100', oscPort: 9000);
 
       expect(config.oscHost, equals('192.168.1.100'));
       expect(config.oscPort, equals(9000));
@@ -134,7 +134,7 @@ void main() {
     test('should handle service methods without connection', () async {
       // Test methods when not connected
       expect(service.isConnected, isFalse);
-      
+
       final content = MediaContent(
         id: 'test',
         name: 'Test',
@@ -167,16 +167,25 @@ void main() {
     test('should handle various media formats for dome projection', () {
       final testContents = [
         MediaContent(
-          id: '1', name: 'Comics', filePath: 'test.comics', 
-          format: MediaFormat.comics, playbackMode: PlaybackMode.screen,
+          id: '1',
+          name: 'Comics',
+          filePath: 'test.comics',
+          format: MediaFormat.comics,
+          playbackMode: PlaybackMode.screen,
         ),
         MediaContent(
-          id: '2', name: 'Boranko', filePath: 'test.boranko', 
-          format: MediaFormat.boranko, playbackMode: PlaybackMode.dome,
+          id: '2',
+          name: 'Boranko',
+          filePath: 'test.boranko',
+          format: MediaFormat.boranko,
+          playbackMode: PlaybackMode.dome,
         ),
         MediaContent(
-          id: '3', name: 'COLLADA', filePath: 'test.dae', 
-          format: MediaFormat.collada, playbackMode: PlaybackMode.ar,
+          id: '3',
+          name: 'COLLADA',
+          filePath: 'test.dae',
+          format: MediaFormat.collada,
+          playbackMode: PlaybackMode.ar,
         ),
       ];
 

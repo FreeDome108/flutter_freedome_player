@@ -64,16 +64,28 @@ void main() {
 
     test('should identify 3D formats correctly', () {
       final colladaContent = MediaContent(
-        id: '1', name: 'Test', filePath: 'test.dae', format: MediaFormat.collada,
+        id: '1',
+        name: 'Test',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
       final objContent = MediaContent(
-        id: '2', name: 'Test', filePath: 'test.obj', format: MediaFormat.obj,
+        id: '2',
+        name: 'Test',
+        filePath: 'test.obj',
+        format: MediaFormat.obj,
       );
       final gltfContent = MediaContent(
-        id: '3', name: 'Test', filePath: 'test.gltf', format: MediaFormat.gltf,
+        id: '3',
+        name: 'Test',
+        filePath: 'test.gltf',
+        format: MediaFormat.gltf,
       );
       final comicsContent = MediaContent(
-        id: '4', name: 'Test', filePath: 'test.comics', format: MediaFormat.comics,
+        id: '4',
+        name: 'Test',
+        filePath: 'test.comics',
+        format: MediaFormat.comics,
       );
 
       expect(colladaContent.is3D, isTrue);
@@ -84,13 +96,22 @@ void main() {
 
     test('should identify 2D formats correctly', () {
       final comicsContent = MediaContent(
-        id: '1', name: 'Test', filePath: 'test.comics', format: MediaFormat.comics,
+        id: '1',
+        name: 'Test',
+        filePath: 'test.comics',
+        format: MediaFormat.comics,
       );
       final borankoContent = MediaContent(
-        id: '2', name: 'Test', filePath: 'test.boranko', format: MediaFormat.boranko,
+        id: '2',
+        name: 'Test',
+        filePath: 'test.boranko',
+        format: MediaFormat.boranko,
       );
       final colladaContent = MediaContent(
-        id: '3', name: 'Test', filePath: 'test.dae', format: MediaFormat.collada,
+        id: '3',
+        name: 'Test',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
 
       expect(comicsContent.is2D, isTrue);
@@ -100,13 +121,22 @@ void main() {
 
     test('should identify dome projection support', () {
       final borankoContent = MediaContent(
-        id: '1', name: 'Test', filePath: 'test.boranko', format: MediaFormat.boranko,
+        id: '1',
+        name: 'Test',
+        filePath: 'test.boranko',
+        format: MediaFormat.boranko,
       );
       final colladaContent = MediaContent(
-        id: '2', name: 'Test', filePath: 'test.dae', format: MediaFormat.collada,
+        id: '2',
+        name: 'Test',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
       final comicsContent = MediaContent(
-        id: '3', name: 'Test', filePath: 'test.comics', format: MediaFormat.comics,
+        id: '3',
+        name: 'Test',
+        filePath: 'test.comics',
+        format: MediaFormat.comics,
       );
 
       expect(borankoContent.supportsDomeProjection, isTrue);
@@ -116,10 +146,16 @@ void main() {
 
     test('should identify AR support', () {
       final colladaContent = MediaContent(
-        id: '1', name: 'Test', filePath: 'test.dae', format: MediaFormat.collada,
+        id: '1',
+        name: 'Test',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
       final comicsContent = MediaContent(
-        id: '2', name: 'Test', filePath: 'test.comics', format: MediaFormat.comics,
+        id: '2',
+        name: 'Test',
+        filePath: 'test.comics',
+        format: MediaFormat.comics,
       );
 
       expect(colladaContent.supportsAR, isTrue);
@@ -128,13 +164,22 @@ void main() {
 
     test('should identify VR support', () {
       final borankoContent = MediaContent(
-        id: '1', name: 'Test', filePath: 'test.boranko', format: MediaFormat.boranko,
+        id: '1',
+        name: 'Test',
+        filePath: 'test.boranko',
+        format: MediaFormat.boranko,
       );
       final colladaContent = MediaContent(
-        id: '2', name: 'Test', filePath: 'test.dae', format: MediaFormat.collada,
+        id: '2',
+        name: 'Test',
+        filePath: 'test.dae',
+        format: MediaFormat.collada,
       );
       final comicsContent = MediaContent(
-        id: '3', name: 'Test', filePath: 'test.comics', format: MediaFormat.comics,
+        id: '3',
+        name: 'Test',
+        filePath: 'test.comics',
+        format: MediaFormat.comics,
       );
 
       expect(borankoContent.supportsVR, isTrue);
@@ -204,9 +249,18 @@ void main() {
       };
 
       for (final entry in testCases.entries) {
-        final json = {'format': entry.key, 'id': 'test', 'name': 'test', 'filePath': 'test'};
+        final json = {
+          'format': entry.key,
+          'id': 'test',
+          'name': 'test',
+          'filePath': 'test',
+        };
         final content = MediaContent.fromJson(json);
-        expect(content.format, equals(entry.value), reason: 'Failed for format: ${entry.key}');
+        expect(
+          content.format,
+          equals(entry.value),
+          reason: 'Failed for format: ${entry.key}',
+        );
       }
     });
 
@@ -227,10 +281,14 @@ void main() {
           'id': 'test',
           'name': 'test',
           'filePath': 'test',
-          'format': 'comics'
+          'format': 'comics',
         };
         final content = MediaContent.fromJson(json);
-        expect(content.playbackMode, equals(entry.value), reason: 'Failed for mode: ${entry.key}');
+        expect(
+          content.playbackMode,
+          equals(entry.value),
+          reason: 'Failed for mode: ${entry.key}',
+        );
       }
     });
   });

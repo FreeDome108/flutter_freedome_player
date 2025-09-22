@@ -15,17 +15,11 @@ void main() {
         format: MediaFormat.boranko,
       );
 
-      const config = PlayerConfig(
-        enableDomeProjection: true,
-        enableVR: true,
-      );
+      const config = PlayerConfig(enableDomeProjection: true, enableVR: true);
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: BorankoPlayer(
-            content: content,
-            config: config,
-          ),
+          home: BorankoPlayer(content: content, config: config),
         ),
       );
 
@@ -34,7 +28,9 @@ void main() {
       expect(find.text('Загрузка Boranko контента...'), findsOneWidget);
     });
 
-    testWidgets('should handle tap to toggle controls visibility', (tester) async {
+    testWidgets('should handle tap to toggle controls visibility', (
+      tester,
+    ) async {
       const content = MediaContent(
         id: 'test',
         name: 'Test Boranko',
@@ -42,17 +38,11 @@ void main() {
         format: MediaFormat.boranko,
       );
 
-      const config = PlayerConfig(
-        enableDomeProjection: true,
-        enableVR: true,
-      );
+      const config = PlayerConfig(enableDomeProjection: true, enableVR: true);
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: BorankoPlayer(
-            content: content,
-            config: config,
-          ),
+          home: BorankoPlayer(content: content, config: config),
         ),
       );
 
@@ -140,10 +130,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: BorankoPlayer(
-            content: content,
-            config: config,
-          ),
+          home: BorankoPlayer(content: content, config: config),
         ),
       );
 
@@ -179,10 +166,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
-          home: BorankoPlayer(
-            content: content,
-            config: config,
-          ),
+          home: BorankoPlayer(content: content, config: config),
         ),
       );
 
@@ -206,10 +190,7 @@ void main() {
       // Test with VR enabled
       await tester.pumpWidget(
         const MaterialApp(
-          home: BorankoPlayer(
-            content: content,
-            config: configWithVR,
-          ),
+          home: BorankoPlayer(content: content, config: configWithVR),
         ),
       );
 
@@ -219,10 +200,7 @@ void main() {
       // Test with VR disabled
       await tester.pumpWidget(
         const MaterialApp(
-          home: BorankoPlayer(
-            content: content,
-            config: configWithoutVR,
-          ),
+          home: BorankoPlayer(content: content, config: configWithoutVR),
         ),
       );
 
@@ -230,7 +208,9 @@ void main() {
       expect(find.byType(BorankoPlayer), findsOneWidget);
     });
 
-    testWidgets('should display error widget when error occurs', (tester) async {
+    testWidgets('should display error widget when error occurs', (
+      tester,
+    ) async {
       const content = MediaContent(
         id: 'test',
         name: 'Test Boranko',
@@ -242,10 +222,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: BorankoPlayer(
-            content: content,
-            config: config,
-          ),
+          home: BorankoPlayer(content: content, config: config),
         ),
       );
 
@@ -276,10 +253,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: BorankoPlayer(
-            content: content,
-            config: config,
-          ),
+          home: BorankoPlayer(content: content, config: config),
         ),
       );
 
@@ -301,10 +275,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: BorankoPlayer(
-            content: content,
-            config: config,
-          ),
+          home: BorankoPlayer(content: content, config: config),
         ),
       );
 
@@ -312,11 +283,7 @@ void main() {
 
       // Remove widget
       await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(
-            body: Text('Different content'),
-          ),
-        ),
+        const MaterialApp(home: Scaffold(body: Text('Different content'))),
       );
 
       await tester.pump();
@@ -337,10 +304,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: BorankoPlayer(
-            content: content,
-            config: config,
-          ),
+          home: BorankoPlayer(content: content, config: config),
         ),
       );
 
@@ -363,10 +327,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: BorankoPlayer(
-            content: content,
-            config: config,
-          ),
+          home: BorankoPlayer(content: content, config: config),
         ),
       );
 
@@ -384,9 +345,7 @@ void main() {
         format: MediaFormat.boranko,
         metadata: {
           'z_depth': true,
-          'quantum_properties': {
-            'resonance_frequency': 108.0,
-          },
+          'quantum_properties': {'resonance_frequency': 108.0},
         },
       );
 
@@ -394,10 +353,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: BorankoPlayer(
-            content: content,
-            config: config,
-          ),
+          home: BorankoPlayer(content: content, config: config),
         ),
       );
 

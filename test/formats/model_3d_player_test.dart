@@ -18,10 +18,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: Model3DPlayer(
-            content: content,
-            config: config,
-          ),
+          home: Model3DPlayer(content: content, config: config),
         ),
       );
 
@@ -30,7 +27,9 @@ void main() {
       expect(find.text('Загрузка 3D модели...'), findsOneWidget);
     });
 
-    testWidgets('should handle tap to toggle controls visibility', (tester) async {
+    testWidgets('should handle tap to toggle controls visibility', (
+      tester,
+    ) async {
       const content = MediaContent(
         id: 'test',
         name: 'Test Model',
@@ -42,10 +41,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: Model3DPlayer(
-            content: content,
-            config: config,
-          ),
+          home: Model3DPlayer(content: content, config: config),
         ),
       );
 
@@ -165,10 +161,7 @@ void main() {
       // Test with AR enabled
       await tester.pumpWidget(
         const MaterialApp(
-          home: Model3DPlayer(
-            content: content,
-            config: configWithAR,
-          ),
+          home: Model3DPlayer(content: content, config: configWithAR),
         ),
       );
 
@@ -178,10 +171,7 @@ void main() {
       // Test with AR disabled
       await tester.pumpWidget(
         const MaterialApp(
-          home: Model3DPlayer(
-            content: content,
-            config: configWithoutAR,
-          ),
+          home: Model3DPlayer(content: content, config: configWithoutAR),
         ),
       );
 
@@ -209,10 +199,7 @@ void main() {
 
       await tester.pumpWidget(
         MaterialApp(
-          home: Model3DPlayer(
-            content: content,
-            config: configWithDome,
-          ),
+          home: Model3DPlayer(content: content, config: configWithDome),
         ),
       );
 
@@ -236,10 +223,7 @@ void main() {
       // Test with auto-rotate enabled
       await tester.pumpWidget(
         const MaterialApp(
-          home: Model3DPlayer(
-            content: content,
-            config: configAutoRotate,
-          ),
+          home: Model3DPlayer(content: content, config: configAutoRotate),
         ),
       );
 
@@ -249,10 +233,7 @@ void main() {
       // Test with auto-rotate disabled
       await tester.pumpWidget(
         const MaterialApp(
-          home: Model3DPlayer(
-            content: content,
-            config: configNoAutoRotate,
-          ),
+          home: Model3DPlayer(content: content, config: configNoAutoRotate),
         ),
       );
 
@@ -272,10 +253,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: Model3DPlayer(
-            content: content,
-            config: config,
-          ),
+          home: Model3DPlayer(content: content, config: config),
         ),
       );
 
@@ -307,10 +285,7 @@ void main() {
 
         await tester.pumpWidget(
           MaterialApp(
-            home: Model3DPlayer(
-              content: content,
-              config: config,
-            ),
+            home: Model3DPlayer(content: content, config: config),
           ),
         );
 
@@ -333,10 +308,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: Model3DPlayer(
-            content: content,
-            config: config,
-          ),
+          home: Model3DPlayer(content: content, config: config),
         ),
       );
 
@@ -359,10 +331,7 @@ void main() {
 
       await tester.pumpWidget(
         const MaterialApp(
-          home: Model3DPlayer(
-            content: content,
-            config: config,
-          ),
+          home: Model3DPlayer(content: content, config: config),
         ),
       );
 
@@ -370,11 +339,7 @@ void main() {
 
       // Remove widget
       await tester.pumpWidget(
-        const MaterialApp(
-          home: Scaffold(
-            body: Text('Different content'),
-          ),
-        ),
+        const MaterialApp(home: Scaffold(body: Text('Different content'))),
       );
 
       await tester.pump();
@@ -397,10 +362,7 @@ void main() {
       // Test with camera controls enabled
       await tester.pumpWidget(
         const MaterialApp(
-          home: Model3DPlayer(
-            content: content,
-            config: configWithControls,
-          ),
+          home: Model3DPlayer(content: content, config: configWithControls),
         ),
       );
 
@@ -410,10 +372,7 @@ void main() {
       // Test with camera controls disabled
       await tester.pumpWidget(
         const MaterialApp(
-          home: Model3DPlayer(
-            content: content,
-            config: configWithoutControls,
-          ),
+          home: Model3DPlayer(content: content, config: configWithoutControls),
         ),
       );
 
