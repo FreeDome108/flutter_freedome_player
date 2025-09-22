@@ -1,0 +1,44 @@
+# Simple cube OBJ model for FreeDome Player demo
+# Created for testing OBJ format support
+
+# Vertices
+v -1.0 -1.0  1.0
+v  1.0 -1.0  1.0
+v  1.0  1.0  1.0
+v -1.0  1.0  1.0
+v -1.0 -1.0 -1.0
+v  1.0 -1.0 -1.0
+v  1.0  1.0 -1.0
+v -1.0  1.0 -1.0
+
+# Vertex normals
+vn  0.0  0.0  1.0
+vn  0.0  0.0 -1.0
+vn  0.0  1.0  0.0
+vn  0.0 -1.0  0.0
+vn  1.0  0.0  0.0
+vn -1.0  0.0  0.0
+
+# Texture coordinates
+vt 0.0 0.0
+vt 1.0 0.0
+vt 1.0 1.0
+vt 0.0 1.0
+
+# Faces (front)
+f 1/1/1 2/2/1 3/3/1 4/4/1
+
+# Faces (back)
+f 8/1/2 7/2/2 6/3/2 5/4/2
+
+# Faces (top)
+f 4/1/3 3/2/3 7/3/3 8/4/3
+
+# Faces (bottom)
+f 1/1/4 5/2/4 6/3/4 2/4/4
+
+# Faces (right)
+f 2/1/5 6/2/5 7/3/5 3/4/5
+
+# Faces (left)
+f 5/1/6 1/2/6 4/3/6 8/4/6

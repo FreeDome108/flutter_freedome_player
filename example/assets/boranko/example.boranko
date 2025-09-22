@@ -1,0 +1,104 @@
+{
+  "format": "boranko",
+  "version": "1.0.0",
+  "metadata": {
+    "title": "FreeDome Player Demo",
+    "description": "Example Boranko content for demonstration",
+    "author": "FreeDome Project",
+    "created": "2025-01-22T00:00:00Z",
+    "duration": 60,
+    "language": "en"
+  },
+  "content": {
+    "type": "2d_with_zdepth",
+    "layers": [
+      {
+        "id": "background",
+        "type": "image",
+        "source": "background.png",
+        "z_depth": 0.0,
+        "opacity": 1.0
+      },
+      {
+        "id": "foreground",
+        "type": "image", 
+        "source": "foreground.png",
+        "z_depth": 0.5,
+        "opacity": 0.8
+      },
+      {
+        "id": "effects",
+        "type": "particle_system",
+        "z_depth": 0.8,
+        "particle_count": 100,
+        "animation": "spiral"
+      }
+    ]
+  },
+  "quantum_properties": {
+    "resonance_frequency": 108.0,
+    "interference_pattern": "spiritual",
+    "consciousness_level": "meditation",
+    "quantum_elements": 108,
+    "fractal_dimension": 2.618,
+    "chakra_alignment": [
+      {"chakra": "root", "frequency": 396.0, "color": "#FF0000"},
+      {"chakra": "sacral", "frequency": 417.0, "color": "#FF8800"},
+      {"chakra": "solar_plexus", "frequency": 528.0, "color": "#FFFF00"},
+      {"chakra": "heart", "frequency": 639.0, "color": "#00FF00"},
+      {"chakra": "throat", "frequency": 741.0, "color": "#0088FF"},
+      {"chakra": "third_eye", "frequency": 852.0, "color": "#4B0082"},
+      {"chakra": "crown", "frequency": 963.0, "color": "#8B00FF"}
+    ]
+  },
+  "dome_projection": {
+    "projection_type": "fisheye",
+    "dome_radius": 5.0,
+    "projector_count": 1,
+    "edge_blending": false,
+    "color_correction": true,
+    "z_depth_mapping": {
+      "enabled": true,
+      "depth_range": [0.0, 1.0],
+      "parallax_strength": 0.5,
+      "stereo_separation": 0.1
+    }
+  },
+  "animations": [
+    {
+      "id": "quantum_rotation",
+      "name": "Quantum Rotation",
+      "duration": 10.0,
+      "type": "continuous",
+      "target": "all_layers",
+      "properties": {
+        "rotation_speed": 0.1,
+        "quantum_phase": 108.0
+      }
+    },
+    {
+      "id": "consciousness_pulse",
+      "name": "Consciousness Pulse", 
+      "duration": 7.0,
+      "type": "breathing",
+      "target": "effects",
+      "properties": {
+        "pulse_frequency": 7.0,
+        "amplitude": 0.2
+      }
+    }
+  ],
+  "audio_resonance": {
+    "enabled": true,
+    "frequency_spectrum": {
+      "fundamental": 108.0,
+      "harmonics": [216.0, 324.0, 432.0, 540.0, 648.0, 756.0, 864.0]
+    },
+    "spatial_audio": {
+      "channels": 64,
+      "ambisonic_order": 7,
+      "room_size": "dome"
+    },
+    "anantasound_integration": true
+  }
+}

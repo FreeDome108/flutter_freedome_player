@@ -67,13 +67,14 @@ class _MyHomePageState extends State<MyHomePage> {
   void _loadComicsExample() {
     final content = FreeDomePlayer.createMediaContent(
       filePath: 'assets/comics/example.comics',
-      name: 'Example Comics',
+      name: 'Mahabharata Chapter 1',
       format: MediaFormat.comics,
-      description: 'Пример комикса для демонстрации',
+      description: 'Первая глава великого эпоса Махабхарата',
+      author: 'Игорь Баранько, Алексей Чебыкин',
     );
 
     setState(() {
-      _controller = _player.createController();
+      _controller = _player.createController(PlayerConfig.defaultComics);
       _controller!.loadMediaContent(content);
     });
   }
@@ -81,13 +82,14 @@ class _MyHomePageState extends State<MyHomePage> {
   void _load3DExample() {
     final content = FreeDomePlayer.createMediaContent(
       filePath: 'assets/models/example.dae',
-      name: 'Example 3D Model',
+      name: 'Buddha Meditation',
       format: MediaFormat.collada,
-      description: 'Пример 3D модели для демонстрации',
+      description: 'Sacred Buddha model for meditation and AR experiences',
+      author: 'Android Jones & Samskara Team',
     );
 
     setState(() {
-      _controller = _player.createController();
+      _controller = _player.createController(PlayerConfig.default3D);
       _controller!.loadMediaContent(content);
     });
   }
@@ -95,14 +97,54 @@ class _MyHomePageState extends State<MyHomePage> {
   void _loadBorankoExample() {
     final content = FreeDomePlayer.createMediaContent(
       filePath: 'assets/boranko/example.boranko',
-      name: 'Example Boranko',
+      name: 'Quantum Meditation',
       format: MediaFormat.boranko,
-      description: 'Пример Boranko контента для демонстрации',
+      description: 'Квантовый контент с резонансом 108 Hz для купольной проекции',
+      author: 'FreeDome Quantum Team',
       playbackMode: PlaybackMode.dome,
     );
 
+    final domeConfig = DomeConfig(
+      projectionType: DomeProjectionType.fisheye,
+      quantumProperties: QuantumProperties(
+        resonanceFrequency: 108.0,
+        interferencePattern: 'spiritual',
+        consciousnessLevel: 'meditation',
+      ),
+    );
+
     setState(() {
-      _controller = _player.createController();
+      _controller = _player.createController(
+        PlayerConfig.domeProjection(domeConfig),
+      );
+      _controller!.loadMediaContent(content);
+    });
+  }
+
+  void _loadObjExample() {
+    final content = FreeDomePlayer.createMediaContent(
+      filePath: 'assets/models/simple_cube.obj',
+      name: 'Simple Cube',
+      format: MediaFormat.obj,
+      description: 'Simple OBJ cube for testing',
+    );
+
+    setState(() {
+      _controller = _player.createController(PlayerConfig.default3D);
+      _controller!.loadMediaContent(content);
+    });
+  }
+
+  void _loadGltfExample() {
+    final content = FreeDomePlayer.createMediaContent(
+      filePath: 'assets/models/triangle.gltf',
+      name: 'glTF Triangle',
+      format: MediaFormat.gltf,
+      description: 'Modern glTF format demonstration',
+    );
+
+    setState(() {
+      _controller = _player.createController(PlayerConfig.default3D);
       _controller!.loadMediaContent(content);
     });
   }
@@ -201,29 +243,61 @@ class _MyHomePageState extends State<MyHomePage> {
           Text('Examples', style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: 16),
 
-          // Кнопки примеров
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              ElevatedButton.icon(
-                onPressed: _loadComicsExample,
-                icon: const Icon(Icons.menu_book),
-                label: const Text('Load Comics Example'),
-              ),
-              const SizedBox(height: 8),
-              ElevatedButton.icon(
-                onPressed: _load3DExample,
-                icon: const Icon(Icons.view_in_ar),
-                label: const Text('Load 3D Model Example'),
-              ),
-              const SizedBox(height: 8),
-              ElevatedButton.icon(
-                onPressed: _loadBorankoExample,
-                icon: const Icon(Icons.psychology),
-                label: const Text('Load Boranko Example'),
-              ),
-            ],
-          ),
+            // Кнопки примеров
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                ElevatedButton.icon(
+                  onPressed: _loadComicsExample,
+                  icon: const Icon(Icons.menu_book),
+                  label: const Text('Comics (.comics) - Mahabharata Ch1'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.orange,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                ElevatedButton.icon(
+                  onPressed: _load3DExample,
+                  icon: const Icon(Icons.account_balance),
+                  label: const Text('COLLADA (.dae) - Buddha Model'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.blue,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                ElevatedButton.icon(
+                  onPressed: _loadObjExample,
+                  icon: const Icon(Icons.category),
+                  label: const Text('OBJ (.obj) - Simple Cube'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                ElevatedButton.icon(
+                  onPressed: _loadGltfExample,
+                  icon: const Icon(Icons.auto_awesome),
+                  label: const Text('glTF (.gltf) - Triangle'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.purple,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
+                const SizedBox(height: 8),
+                ElevatedButton.icon(
+                  onPressed: _loadBorankoExample,
+                  icon: const Icon(Icons.psychology),
+                  label: const Text('Boranko (.boranko) - Quantum'),
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.deepPurple,
+                    foregroundColor: Colors.white,
+                  ),
+                ),
+              ],
+            ),
         ],
       ),
     );
